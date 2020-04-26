@@ -1,0 +1,155 @@
+#!/usr/bin/env groovy
+node {
+
+try {
+
+  stage ('Source Checkout for GitHub CodeBase'){
+  checkout([$class: 'GitSCM', branches: [[name: '*/development']],
+   doGenerateSubmoduleConfigurations: false,
+   extensions: [[$class: 'CheckoutOption', timeout: 20], [$class: 'CleanBeforeCheckout'], [$class: 'WipeWorkspace']],
+   submoduleCfg: [], userRemoteConfigs: [[credentialsId: '8a9ffbf1-b206-4ee5-a440-2eb034451124',
+   url: 'https://github.com/sivasagarpalakurthyiOS/eTekiRecuiter.git']]])
+  }
+
+  stage('Ensure Git Clean') {
+    sh '''#!/bin/bash -l
+    cd Source/eTekiRecruiter/Scripts/CI-CD-Scripts/2-Ensure-Clean-Git-Status
+    sh ensure_clean_git_status.sh
+    '''
+  }
+
+  stage('Clear Derived Data and Build Artifacts') {
+    sh '''#!/bin/bash -l
+    cd Source/eTekiRecruiter/Scripts/CI-CD-Scripts/0-Clean-Dervied-Data
+    sh ensure_clear_deriveddata.sh
+    '''
+  }
+
+  stage('Bump Version') {
+    sh '''#!/bin/bash -l
+    cd Source/eTekiRecruiter/Scripts/CI-CD-Scripts/5-Bump-Version
+    sh bump_version_for_alpha_release.sh "patch"
+    '''
+  }
+
+  stage('iOS10 Run TestCases') {
+    sh '''#!/bin/bash -l
+    cd Source/eTekiRecruiter/Scripts/CI-CD-Scripts/6-Run-Test-Cases
+    sh run_all_test_cases_ios10.sh
+    '''
+  }
+
+  stage('iOS10 Test Execution Report') {
+    sh '''#!/bin/bash -l
+    cd Source/eTekiRecruiter/Scripts/CI-CD-Scripts/7-Test-Execution-Report
+    sh test_execution_report_ios10.sh
+    '''
+  }
+
+  stage('iOS11 Run TestCases') {
+    sh '''#!/bin/bash -l
+    cd Source/eTekiRecruiter/Scripts/CI-CD-Scripts/6-Run-Test-Cases
+    sh run_all_test_cases_ios11.sh
+    '''
+  }
+
+  stage('iOS11 Test Execution Report') {
+    sh '''#!/bin/bash -l
+    cd Source/eTekiRecruiter/Scripts/CI-CD-Scripts/7-Test-Execution-Report
+    sh test_execution_report_ios11.sh
+    '''
+  }
+
+  stage('Commit Reports') {
+    sh '''#!/bin/bash -l
+    cd Source/eTekiRecruiter/Scripts/CI-CD-Scripts/15-Git-Commit-Reports
+    sh git_commit_reports_for_alpha_release.sh
+    '''
+  }
+
+  stage('Build & Create Development (.ipa)') {
+    sh '''#!/bin/bash -l
+    cd Source/eTekiRecruiter/Scripts/CI-CD-Scripts/9-Create-Build-For-Development
+    sh create_build_for_development.sh
+    '''
+  }
+
+  stage('Code Coverage') {
+    sh '''#!/bin/bash -l
+    cd Source/eTekiRecruiter/Scripts/CI-CD-Scripts/8-Code-Coverage
+    sh generate_code_coverage.sh
+    '''
+  }
+
+
+  stage('Build & Create Ad-Hoc (.ipa)') {
+    sh '''#!/bin/bash -l
+    cd Source/eTekiRecruiter/Scripts/CI-CD-Scripts/10-Create_build_for_Adhoc
+    sh create_build_for_ADhoc.sh
+    '''
+  }
+
+  stage('Commit Development ipa') {
+    sh '''#!/bin/bash -l
+    cd Source/eTekiRecruiter/Scripts/CI-CD-Scripts/13-Git-Commit-Development-ipa
+    sh git_commit_ipa_for_alpha_release.sh
+    '''
+  }
+
+  stage('Commit Ad-hoc ipa') {
+    sh '''#!/bin/bash -l
+    cd Source/eTekiRecruiter/Scripts/CI-CD-Scripts/12-GIT-Commit-Ad-Hoc-ipa
+    sh git_commit_Ad-Hoc_ipa_for_alpha_release.sh
+    '''
+  }
+
+  stage('Add Git Tag for Release') {
+    sh '''#!/bin/bash -l
+    cd Source/eTekiRecruiter/Scripts/CI-CD-Scripts/11-Add-Git-Tag
+    sh add_git_tag_for_alpha_release.sh
+    '''
+  }
+
+  stage('Create Build for TestFlight') {
+    sh '''#!/bin/bash -l
+    cd Source/eTekiRecruiter/Scripts/CI-CD-Scripts/17-Create-build-for-TestFlight
+    sh create_build_for_TestFlight_upload.sh
+    '''
+  }
+
+  stage('Upload Build to TestFlight') {
+    sh '''#!/bin/bash -l
+    cd Source/eTekiRecruiter/Scripts/CI-CD-Scripts/18-Upload-Build-to-TestFlight
+    sh upload_build_to_TestFlight.sh
+    '''
+  }
+
+  stage('Git commit TestFlight ipa file') {
+    sh '''#!/bin/bash -l
+    cd Source/eTekiRecruiter/Scripts/CI-CD-Scripts/19-Git-Commit-TestFlight-ipa-file
+    sh git_commit_TestFlight_ipa_file.sh
+    '''
+  }
+
+
+} catch (e) {
+  errors << "errors found: ${err}"
+      stage('Email Notification on Fail') {
+          echo "Send Email here."
+          echo errors
+      }
+} finally {
+
+      // stage('Static Analysis') {
+      //   sh '''#!/bin/bash -l
+      //   cd /Users/SivaP/Documents/UnationJenkinsProject/Source/unation-ios-UN_3.0.1/Scripts/CI-CD-Scripts/20-Create-OCLint-Report
+      //   sh get_OCLint_Report.sh
+      //   '''
+      // }
+
+  stage('Cleaning workspace') {
+    step([$class: 'WsCleanup', deleteDirs: true, notFailBuild: true])
+  }
+}
+
+}

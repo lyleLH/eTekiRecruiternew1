@@ -1,0 +1,412 @@
+default_platform(:ios)
+
+platform :ios do
+
+  desc "This lane will ensure Derived Data is cleaned."
+    lane :ensure_clear_deriveddata do
+      clear_derived_data
+      clean_build_artifacts
+  end
+
+  desc "This lane will ensure that there is no local changes in Git Repo."
+    lane :ensure_clean_git_status do
+      ensure_git_status_clean(
+        show_uncommitted_changes: true
+      )
+      cocoapods
+  end
+
+  desc "Clean and Update Pods"
+   lane :clean_pod_frameworks do
+     cocoapods(
+       clean_install: true,
+       podfile: "./Podfile"
+     )
+   end
+
+  desc "This lane will run unit test-cases of project."
+    lane :run_unit_test_cases do
+
+     scan(scheme: "QA",
+       open_report: true,
+       clean: true,
+       skip_build: true,
+       disable_concurrent_testing: true
+     )
+      #run_tests(workspace: "eTekiRecruiter.xcworkspace",
+      #            devices: ["iPhone 8", "iPad Air"],
+      #            scheme: "eTekiRecuiterTests")
+
+  end
+
+  desc "This lane will run UI test-cases of project."
+    lane :run_ui_test_cases do
+      run_tests(
+        scheme: ENV['SCHEME'],
+        configuration: ENV['DEFAULT_CONFIGURATION'],
+        only_testing: ENV['APP_UI_TESTCASES_TARGET']
+      )
+  end
+
+  desc "Generate Code coverage report using gcovr"
+  lane :getCodeCoverage do
+    gcovr(
+      html: true,
+      html_details: true,
+      output: "./fastlane/code-coverage/report.html"
+    )
+    end
+
+  desc "This lane will run Unit and UI both type test-cases of project in iOS10 simulator."
+    lane :run_all_test_cases_ios10 do |options|
+      simulator_info = options[:simulator_info]
+      name = (simulator_info.split('|'))[0]
+      os = (simulator_info.split('|'))[1]
+        run_tests(
+          scheme: ENV['SCHEME'],
+          configuration: ENV['DEFAULT_CONFIGURATION'],
+          destination: ENV['SIMULATOR_iOS'] % {:name => name, :os => os}
+        )
+  end
+
+  desc "This lane will run Unit and UI both type test-cases of project in iOS11 simulator."
+    lane :run_all_test_cases_ios11 do |options|
+      simulator_info = options[:simulator_info]
+      name = (simulator_info.split('|'))[0]
+      os = (simulator_info.split('|'))[1]
+      run_tests(
+        scheme: ENV['SCHEME'],
+        configuration: ENV['DEFAULT_CONFIGURATION'],
+        destination: ENV['SIMULATOR_iOS'] % {:name => name, :os => os}
+      )
+  end
+
+  desc "This lane will generate code-coverage report of project."
+    lane :generate_code_coverage_report do
+      slather(
+        scheme: ENV['SCHEME'],
+        configuration: ENV['DEFAULT_CONFIGURATION'],
+        proj: ENV['PROJ'],
+        workspace: ENV['WORKSPACE'],
+        binary_basename: ENV['APP_TARGET'],
+        output_directory: ENV['CODE_COVERAGE_DIR'],
+        ignore: [ "Third Components/*", "Pods/*","Scripts/*"],
+        html: true
+      )
+
+      # #Git commit Reports folder.
+      # git_commit(path: [ENV['CODE_COVERAGE_DIR']], message: ENV['UPDATE_CODE_COVERAGE_REPORTS_COMMIT_MESSAGE'])
+      #
+      # #Push to remote
+      #     push_to_git_remote(
+      #       remote: "origin",         # optional, default: "origin"
+      #       local_branch: "HEAD",  # optional, aliased by "branch", default is set to current branch
+      #       remote_branch: ENV['REMOTE_BRANCH'], # optional, default is set to local_branch
+      #       force: true,    # optional, default: false
+      #       force_with_lease: true,   # optional, default: false
+      #       tags: false,    # optional, default: true
+      #       no_verify: true,# optional, default: false
+      #       set_upstream: true        # optional, default: false
+      #     )
+
+
+  end
+
+desc "This lane will bump the minor/patch version of project."
+lane :bump_version_for_alpha_release do |options|
+  #Automatically increment minor/patch version number
+    increment_version_number(
+      bump_type: options[:bump_type]
+    )
+  version = get_version_number()
+
+  increment_version_number(
+    version_number: version
+  )
+
+  #Update Release Notes
+  alpha_release_name = ENV['APP_TARGET'] + version + "-Alpha Release-"
+  stamp_changelog(
+    section_identifier: alpha_release_name
+  )
+
+  #Commit Version Bump
+  commit_version_bump(
+    message: ENV['VERSION_BUMP_GIT_COMMIT_MESSAGE'] % {:release_name => alpha_release_name},
+    xcodeproj: "./#{ENV['PROJ']}",
+    #include: %w[unation-ios-UN_3.0.1/CHANGELOG.md],
+    force: true
+  )
+
+#push_to_git_remote
+  push_to_git_remote(
+    remote: "origin",         # optional, default: "origin"
+    local_branch: "HEAD",  # optional, aliased by "branch", default is set to current branch
+    remote_branch: ENV['REMOTE_BRANCH'], # optional, default is set to local_branch
+    force: true,    # optional, default: false
+    force_with_lease: true,   # optional, default: false
+    tags: false,    # optional, default: true
+    no_verify: true,# optional, default: false
+    set_upstream: true        # optional, default: false
+  )
+end
+
+  desc "This lane will Create Build for development branch in Git Repo."
+  lane :create_build_for_development do |options|
+    version = get_version_number()
+    ipa_name = ENV['APP_TARGET'] + version + ".ipa"
+    #Build Project & Create ipa.
+    build_app(
+      scheme: ENV['SCHEME'],
+      configuration: ENV['DEFAULT_CONFIGURATION'],
+      export_method: "development",
+      clean: true,
+      skip_profile_detection: true,
+      include_symbols: false,
+      include_bitcode: false,
+    #  export_options: ENV['DEV_EXPORT_OPTIONS_PLIST_PATH'],
+      export_options: {
+          signingStyle: "manual",
+          provisioningProfiles: {
+            "com.amzur.eTekiRecruiter" => "Recruiter20_Developement_Profile",
+          }
+        },
+      output_directory: ENV['ALPHA_RELEASE_IPA_DIR'] % {:version => "#{version}"},
+      output_name: ipa_name
+   )
+end
+
+desc "This lane will add Git Tag for Alpha Release of project."
+  lane :add_git_tag_for_alpha_release do
+    #Fetch version number
+    version = get_version_number()
+    #version = ((version.split('-'))[0]).strip
+
+    #Add Tag
+    git_tag = ENV['ALPHA_RELEASE_GIT_TAG_PREFIX'] + version
+    add_git_tag(
+      tag: git_tag
+    )
+
+    #Push to remote
+    push_to_git_remote(
+      remote: "origin",         # optional, default: "origin"
+      local_branch: "HEAD",  # optional, aliased by "branch", default is set to current branch
+      remote_branch: ENV['REMOTE_BRANCH'], # optional, default is set to local_branch
+      force: true,    # optional, default: false
+      force_with_lease: true,   # optional, default: false
+      tags: false,    # optional, default: true
+      no_verify: true,# optional, default: false
+      set_upstream: true        # optional, default: false
+    )
+end
+
+desc "This lane will do Git commit for Reports of project."
+  lane :git_commit_reports_for_alpha_release do
+    #Git commit Reports folder.
+    git_commit(path: [ENV['REPORTS_DIR']], message: ENV['UPDATE_REPORTS_GIT_COMMIT_MESSAGE'])
+
+    #Push to remote
+        push_to_git_remote(
+          remote: "origin",         # optional, default: "origin"
+          local_branch: "HEAD",  # optional, aliased by "branch", default is set to current branch
+          remote_branch: ENV['REMOTE_BRANCH'], # optional, default is set to local_branch
+          force: true,    # optional, default: false
+          force_with_lease: true,   # optional, default: false
+          tags: false,    # optional, default: true
+          no_verify: true,# optional, default: false
+          set_upstream: true        # optional, default: false
+        )
+end
+
+desc "This lane will do Git commit for ipa-file of project."
+  lane :git_commit_ipa_for_alpha_release do
+    #Fetch version number
+    #Git add ipa folder.
+    #git_add(path: ENV['IPA_DIR'])
+    version = get_version_number()
+    ipa_dir_path = "#{ENV['ALPHA_RELEASE_IPA_DIR'] % {:version => version}}/*.*"
+    git_add(path: [ipa_dir_path])
+
+    #Git commit ipa folder.
+    git_commit(path: ipa_dir_path, message: ENV['IPA_GIT_COMMIT_MESSAGE'])
+
+    push_to_git_remote(
+      remote: "origin",         # optional, default: "origin"
+      local_branch: "HEAD",  # optional, aliased by "branch", default is set to current branch
+      remote_branch: ENV['REMOTE_BRANCH'], # optional, default is set to local_branch
+      force: true,    # optional, default: false
+      force_with_lease: true,   # optional, default: false
+      tags: false,    # optional, default: true
+      no_verify: true,# optional, default: false
+      set_upstream: true        # optional, default: false
+    )
+
+end
+
+#Ad-Hoc release
+
+desc "This lane will Create Build for AdHoc in project Git Repo."
+lane :create_build_for_AdHoc do |options|
+  version = get_version_number()
+  ipa_name = ENV['APP_TARGET'] + version + ".ipa"
+  #Build Project & Create ipa.
+  build_app(
+    scheme: ENV['PROD_SCHEME'],
+    configuration: ENV['ADHOC_CONFIGURATION'],
+    export_method: "ad-hoc",
+    clean: true,
+    skip_profile_detection: true,
+    include_symbols: false,
+    include_bitcode: false,
+    export_options: {
+        signingStyle: "manual",
+        provisioningProfiles: {
+          "com.unation.dev" => "Uniation_AdHoc_Profile",
+        }
+      },
+    output_directory: ENV['ADHOC_RELEASE_IPA_DIR'] % {:version => "#{version}"},
+    output_name: ipa_name
+ )
+end
+
+
+desc "This lane will do Git commit for Ad-hoc ipa-file of project."
+  lane :git_commit_AdHoc_ipa_for_alpha_release do
+    #Fetch version number
+    #Git add ipa folder.
+    #git_add(path: ENV['IPA_DIR'])
+    version = get_version_number()
+    ipa_dir_path = "#{ENV['ADHOC_RELEASE_IPA_DIR'] % {:version => version}}/*.*"
+    git_add(path: [ipa_dir_path])
+
+    #Git commit ipa folder.
+    git_commit(path: ipa_dir_path, message: ENV['IPA_GIT_COMMIT_MESSAGE'])
+
+    push_to_git_remote(
+      remote: "origin",         # optional, default: "origin"
+      local_branch: "HEAD",  # optional, aliased by "branch", default is set to current branch
+      remote_branch: ENV['REMOTE_BRANCH'], # optional, default is set to local_branch
+      force: true,    # optional, default: false
+      force_with_lease: true,   # optional, default: false
+      tags: false,    # optional, default: true
+      no_verify: true,# optional, default: false
+      set_upstream: true        # optional, default: false
+    )
+
+end
+
+#Create build for TestFlight with Appstore distribution Profile
+
+desc "This lane will Create Build for TestFlight upload"
+lane :create_build_for_TestFlight_Upload do |options|
+  version = get_version_number()
+  ipa_name = ENV['APP_TARGET'] + version + ".ipa"
+  #Build Project & Create ipa.
+  build_app(
+    scheme: ENV['PROD_SCHEME'],
+    configuration: ENV['ADHOC_CONFIGURATION'],
+    export_method: "app-store",
+    clean: true,
+    skip_profile_detection: true,
+    include_symbols: false,
+    include_bitcode: false,
+    #export_options: ENV['DEV_EXPORT_OPTIONS_PLIST_PATH'],
+    export_options: {
+        signingStyle: "manual",
+        provisioningProfiles: {
+          "com.unation.dev" => "Uniation_Appstore_Profile",
+        }
+      },
+    output_directory: ENV['TESTFLIGHT_RELEASE_IPA_DIR'] % {:version => "#{version}"},
+    output_name: ipa_name
+ )
+end
+
+desc "This lane will upload Build to TestFlight"
+lane :upload_build_to_testflight do |options|
+  version = get_version_number()
+  ipa_name = ENV['APP_TARGET'] + version + ".ipa"
+  ipa_dir_path = "#{ENV['TESTFLIGHT_RELEASE_IPA_DIR'] % {:version => version}}/#{ipa_name}"
+  pilot(ipa: ipa_dir_path,
+    username: "etekiios@eteki.com")
+
+  # altool(
+  #       altool_username: ENV["FASTLANE_USER"],
+  #       altool_password: ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"],
+  #       altool_app_type: "ios",
+  #       altool_ipa_path:  ipa_dir_path,
+  #       altool_output_format: "xml",
+  # )
+  # upload_to_testflight(
+  #   username: "siva.palakurthy@amzurtech.com",
+  #   app_identifier: "com.amzur.pushApp",
+  # )
+
+end
+
+
+desc "This lane will do Git commit for TestFlight build ipa-file of TestApp project."
+  lane :git_commit_TestFlight_ipa do
+    #Fetch version number
+    #Git add ipa folder.
+    #git_add(path: ENV['IPA_DIR'])
+    version = get_version_number()
+    ipa_dir_path = "#{ENV['TESTFLIGHT_RELEASE_IPA_DIR'] % {:version => version}}/*.*"
+    git_add(path: [ipa_dir_path])
+
+    #Git commit ipa folder.
+    git_commit(path: ipa_dir_path, message: ENV['TESTFLIGHT_IPA_GIT_COMMIT_MESSAGE'])
+
+    push_to_git_remote(
+      remote: "origin",         # optional, default: "origin"
+      local_branch: "HEAD",  # optional, aliased by "branch", default is set to current branch
+      remote_branch: ENV['REMOTE_BRANCH'], # optional, default is set to local_branch
+      force: true,    # optional, default: false
+      force_with_lease: true,   # optional, default: false
+      tags: false,    # optional, default: true
+      no_verify: true,# optional, default: false
+      set_upstream: true        # optional, default: false
+    )
+
+end
+
+desc "This lane is to get SwiftLint report"
+lane :get_lint_report do
+  swiftlint(
+  mode: :lint,
+  config_file: "./swiftlint-ci.yml",     # The path of the configuration file (optional)
+  executable: "./Pods/SwiftLint/swiftlint",
+  reporter: "html",
+  output_file: "swiftlint-results.html",
+  ignore_exit_status: true
+   # Allow fastlane to continue even if SwiftLint returns a non-zero exit status
+)
+end
+
+desc "Run lint autocorrect"
+lane :lint_autocorrect do
+  swiftlint(
+    mode: :autocorrect,
+    executable: "./Pods/SwiftLint/swiftlint",
+  )
+end
+
+desc "This lane will get OCLint report"
+  lane :get_oclint_report do
+    oclint(
+      compile_commands: "compile_commands.json",    # The JSON compilation database, use xctool reporter "json-compilation-database"
+      select_regex: /eTekiRecruiter/,
+      report_type: "html",
+      max_priority_1: 10000,         # The max allowed number of priority 1 violations
+      max_priority_2: 20000,        # The max allowed number of priority 2 violations
+      max_priority_3: 30000,       # The max allowed number of priority 3 violations
+      thresholds: [     # Override the default behavior of rules
+        "LONG_LINE=20000",
+        "LONG_METHOD=32000"
+      ]
+      )
+end
+
+
+end

@@ -1,0 +1,132 @@
+
+/* Class = "UILabel"; text = "5"; ObjectID = "1Gu-De-O51"; */
+"1Gu-De-O51.text" = "5";
+
+/* Class = "UINavigationItem"; title = "Root View Controller"; ObjectID = "46c-eS-2NS"; */
+"46c-eS-2NS.title" = "Root View Controller";
+
+/* Class = "UIButton"; normalTitle = "Reactivate"; ObjectID = "5gc-Pe-lGr"; */
+"5gc-Pe-lGr.normalTitle" = "Reactivate";
+
+/* Class = "UINavigationItem"; title = "Add Candidate"; ObjectID = "5zI-LH-7FF"; */
+"5zI-LH-7FF.title" = "Add Candidate";
+
+/* Class = "UISegmentedControl"; 8Q2-Dm-WWt.segmentTitles[0] = "My Jobs"; ObjectID = "8Q2-Dm-WWt"; */
+"8Q2-Dm-WWt.segmentTitles[0]" = "My Jobs";
+
+/* Class = "UISegmentedControl"; 8Q2-Dm-WWt.segmentTitles[1] = "My Interviews"; ObjectID = "8Q2-Dm-WWt"; */
+"8Q2-Dm-WWt.segmentTitles[1]" = "My Interviews";
+
+/* Class = "UILabel"; text = "Pending"; ObjectID = "CG6-DC-eBS"; */
+"CG6-DC-eBS.text" = "Pending";
+
+/* Class = "UILabel"; text = "Skills"; ObjectID = "GFc-cO-Cb0"; */
+"GFc-cO-Cb0.text" = "Skills";
+
+/* Class = "UIButton"; normalTitle = "Forgot Password?"; ObjectID = "GH6-4E-7Ea"; */
+"GH6-4E-7Ea.normalTitle" = "Forgot Password?";
+
+/* Class = "UIButton"; normalTitle = "No"; ObjectID = "IM9-Xa-8On"; */
+"IM9-Xa-8On.normalTitle" = "No";
+
+/* Class = "UILabel"; text = "Options 1"; ObjectID = "M3D-87-pdm"; */
+"M3D-87-pdm.text" = "Options 1";
+
+/* Class = "UIButton"; normalTitle = "Apply"; ObjectID = "NMk-Th-NHK"; */
+"NMk-Th-NHK.normalTitle" = "Apply";
+
+/* Class = "UILabel"; text = "Are you sure"; ObjectID = "RZS-ET-Gms"; */
+"RZS-ET-Gms.text" = "Are you sure";
+
+/* Class = "UILabel"; text = "Completed"; ObjectID = "Rqb-tr-IUL"; */
+"Rqb-tr-IUL.text" = "Completed";
+
+/* Class = "UIButton"; normalTitle = "Save and Continue"; ObjectID = "SjC-7g-KJj"; */
+"SjC-7g-KJj.normalTitle" = "Save and Continue";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "SjC-pF-5Va"; */
+"SjC-pF-5Va.text" = "Label";
+
+/* Class = "UILabel"; text = "Do you want to close the Job?"; ObjectID = "Tbi-ee-vaj"; */
+"Tbi-ee-vaj.text" = "Do you want to close the Job?";
+
+/* Class = "UINavigationItem"; title = "Profile"; ObjectID = "ThF-35-2sH"; */
+"ThF-35-2sH.title" = "Profile";
+
+/* Class = "UINavigationItem"; title = "Sr. Java Developer"; ObjectID = "UED-Vh-kjk"; */
+"UED-Vh-kjk.title" = "Sr. Java Developer";
+
+/* Class = "UIButton"; normalTitle = "Sign in"; ObjectID = "Uxp-bc-33L"; */
+"Uxp-bc-33L.normalTitle" = "Sign in";
+
+/* Class = "UILabel"; text = "Are you sure"; ObjectID = "V4B-8V-ITM"; */
+"V4B-8V-ITM.text" = "Are you sure";
+
+/* Class = "UILabel"; text = "Closing Date: 30 Sep, 2018"; ObjectID = "Vi9-uD-Z75"; */
+"Vi9-uD-Z75.text" = "Closing Date: 30 Sep, 2018";
+
+/* Class = "UISearchBar"; placeholder = "Search"; ObjectID = "WYL-CA-YZo"; */
+"WYL-CA-YZo.placeholder" = "Search";
+
+/* Class = "UINavigationItem"; title = "Forgot Password?"; ObjectID = "aNB-Hh-hQs"; */
+"aNB-Hh-hQs.title" = "Forgot Password?";
+
+/* Class = "UILabel"; text = "Candidate"; ObjectID = "bas-qe-Dec"; */
+"bas-qe-Dec.text" = "Candidate";
+
+/* Class = "UIButton"; normalTitle = "Yes"; ObjectID = "c1m-wy-Vpc"; */
+"c1m-wy-Vpc.normalTitle" = "Yes";
+
+/* Class = "UINavigationItem"; title = "Dashboard"; ObjectID = "cQU-in-lrF"; */
+"cQU-in-lrF.title" = "Dashboard";
+
+/* Class = "UINavigationItem"; title = "Create Job"; ObjectID = "edT-gw-x5I"; */
+"edT-gw-x5I.title" = "Create Job";
+
+/* Class = "UILabel"; text = "Core Java, # Angular, #PHP, Node JS, JSP, Struts, Oracle, Mango,Core Java, # Angular, #PHP, Node JS, JSP, Struts, Oracle, Mango D...Core Java, # Angular, #PHP, Node JS, JSP, Struts, Oracle, Mango,Core Java, # Angular, #PHP, Node JS, JSP, Struts, Oracle, Mango D..."; ObjectID = "fH6-O0-Xu0"; */
+"fH6-O0-Xu0.text" = "Core Java, # Angular, #PHP, Node JS, JSP, Struts, Oracle, Mango,Core Java, # Angular, #PHP, Node JS, JSP, Struts, Oracle, Mango D...Core Java, # Angular, #PHP, Node JS, JSP, Struts, Oracle, Mango,Core Java, # Angular, #PHP, Node JS, JSP, Struts, Oracle, Mango D...";
+
+/* Class = "UILabel"; text = "12"; ObjectID = "fjz-xj-mHL"; */
+"fjz-xj-mHL.text" = "12";
+
+/* Class = "UILabel"; text = "Sr. Java Developer"; ObjectID = "gHg-g2-Dyh"; */
+"gHg-g2-Dyh.text" = "Sr. Java Developer";
+
+/* Class = "UIButton"; normalTitle = "Resend Confirmation Link?"; ObjectID = "hkF-fd-VAA"; */
+"hkF-fd-VAA.normalTitle" = "Resend Confirmation Link?";
+
+/* Class = "UILabel"; text = "Filter By"; ObjectID = "i2R-qD-9Ud"; */
+"i2R-qD-9Ud.text" = "Filter By";
+
+/* Class = "UITextField"; placeholder = "Enter Job Title"; ObjectID = "kjF-aV-Uw4"; */
+"kjF-aV-Uw4.placeholder" = "Enter Job Title";
+
+/* Class = "UILabel"; text = "Or"; ObjectID = "nV3-ZW-0mY"; */
+"nV3-ZW-0mY.text" = "Or";
+
+/* Class = "UINavigationItem"; title = "Payments"; ObjectID = "o8c-By-HuU"; */
+"o8c-By-HuU.title" = "Payments";
+
+/* Class = "UIButton"; normalTitle = "No"; ObjectID = "ord-50-Rt0"; */
+"ord-50-Rt0.normalTitle" = "No";
+
+/* Class = "UINavigationItem"; title = "Resend Confirmation Link?"; ObjectID = "qB1-0Y-x0r"; */
+"qB1-0Y-x0r.title" = "Resend Confirmation Link?";
+
+/* Class = "UILabel"; text = "5"; ObjectID = "vaW-2W-RQf"; */
+"vaW-2W-RQf.text" = "5";
+
+/* Class = "UIButton"; normalTitle = "Yes"; ObjectID = "yVB-cw-vbK"; */
+"yVB-cw-vbK.normalTitle" = "Yes";
+
+/* Class = "UIButton"; normalTitle = "Filter"; ObjectID = "yxE-Lf-Clt"; */
+"yxE-Lf-Clt.normalTitle" = "Filter";
+
+/* Class = "UITextField"; placeholder = "Enter Password"; ObjectID = "zST-qN-lo5"; */
+"zST-qN-lo5.placeholder" = "Enter Password";
+
+/* Class = "UITextField"; placeholder = "Enter Email"; ObjectID = "znO-xo-oim"; */
+"znO-xo-oim.placeholder" = "Enter Email";
+
+/* Class = "UILabel"; text = "Do you want to close this job?"; ObjectID = "zo0-Zi-Ob2"; */
+"zo0-Zi-Ob2.text" = "Do you want to close this job?";

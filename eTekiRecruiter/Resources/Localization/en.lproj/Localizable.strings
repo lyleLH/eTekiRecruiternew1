@@ -1,0 +1,226 @@
+/* 
+  Locaziable.Strings (English).strings
+  eTekiRecruiter
+
+  Created by Siva Sagar Palakurthy on 30/07/19.
+  Copyright © 2019 amzurtech. All rights reserved.
+*/
+
+
+"APP_NAME" = "eTekiRecruiter";
+"EMAIL" = "Email";
+"PASSWORD" = "Password";
+"SIGN_IN" = "Sign In";
+"FORGET_PASSWORD" = "Forgot password?";
+"RESEND_CONFIRMATION_LINK" = "Resend Confirmation Link?";
+"OR" = "Or";
+"ENTER_EMAIL" = "Enter Email Address";
+"ENTER_PASSWORD" = "Enter Password";
+"REQUIRED_SKILLS" = "Required Skills";
+"OPTIONAL_SKILLS" = "Optional Skills";
+"PLEASE_ENTER_VALID_EMAIL" = "Please enter valid email";
+"PASSWORD_VALIDATION_MESSAGE" = "Password should be atleast 8 characters";
+"DASHBOARD" = "Dashboard";
+"PROFILE" = "Profile";
+"PAYMENTS" = "Payments";
+"LOGOUT" = "Logout";
+"CHECK_YOUR_NETWORK_CONNECTION" = "Please check your network connection";
+"UNKOWN_SERVER_ERROR" = "Unkown Server Error";
+"RESET_PASSWORD" = "Reset Password";
+"BACK_TO_LOGIN" = "Back to Login";
+"RESET_PASSWORD_DESC" = "Enter your email address to request a password reset.";
+"REASON_FOR_WITHDRAW" = "Reason for Withdraw*";
+
+"RESEND_CONFIRMATION" = "Resend Confirmation";
+"RESEND" = "Resend";
+"RESEND_CONFIRMATION_DESC" = "Before requesting another confirmation email, please check your spam/junk folder for the confirmation email.";
+"RESEND_CONFIRMATION_LINK" = "Resend Confirmation Link?";
+"INCOMPLETE_PROFILE_DESC" = "Please complete your profile from web application and SignIn.";
+"INCOMPLETE_PROFILE" = "Incomplete Profile.";
+"UNSUPPORTED_ROLE_INTERVIEWER" = "Your profile is registered as Interviewer, Please login with eTeki app";
+"UNSUPPORTED_ROLE_CANDIDATE" = "Your profile is already registered as Candidate, So please login with valid application.";
+"APP_ONLY_RECRUITERS" = "App is only for Recruiters. Please contact support.";
+"MY_JOBS" = "My Jobs";
+"MY_INTERVIEWS" = "My Interviews";
+"NO_MATCHED_INTERVIEWS" = "There were no auto matched interviewers for the job";
+"MY_CONTRIBUTOR_JOBS" = "My Contributor Jobs";
+"CONTRIBUTOR_PERMISSIONS" = "Contributor Permissions";
+"ACTIVE" = "Active";
+"INACTIVE" = "Inactive";
+"TODAY" = "Today";
+"WEEK" = "Week";
+"TWO_WEEKS" = "Two Weeks";
+"MONTH" = "Month";
+"QUARTER" = "Quarter";
+"ANNUAL" = "Annual";
+"WITHDRAW_PLACEHOLDER" = "Please share a reason for withdrawing, as eTeki strives to understand what factors contribute to why some candidates don't take the interview.";
+
+
+"FORGOT_PASSWORD_LINK_RESET_DESC" = "You will receive an email momentarily with instructions on how to reset your password.  If you do not see the email in  your Inbox, please check your Spam / Junk folder.";
+"VPN_ERROR" = "Unable to reach server, Please check your Network/VPN Settings.";
+
+"SEARCH_BY" = "Search By";
+"KEYWORDS" = "Keywords";
+
+"PRIMARY_INFO" = "Primary Info";
+"CHANGE_PASSWORD" = "Change Password";
+"ADDRESS" = "Address";
+"COMPANY" = "Company";
+"SMS_SETTINGS" = "SMS Settings";
+"GENERATE_PASSCODE" = "Generate Passcode";
+
+"SCHEDULED" = "Scheduled";
+"IN_PROGRESS" = "In Progress";
+"PENDING_REPORT" = "Pending Report";
+"PENDING_APPROVAL" = "Pending Approval";
+"PENDING_PAYMENT" = "Pending Payment";
+"COMPLETED" = "Completed";
+"CANCELLED" = "Cancelled";
+"WAITING_ON_CANDIDATE" = "Waiting on Candidate";
+"WAITING_ON_INTERVIEWER" = "Waiting on Interviewer";
+"NO_SHOW" = "No Show";
+"INCOMPLETED" = "Incompleted";
+"CONTRIBUTOR_INTERVIEWS" = "Contributor Interviews";
+"MY_INTEVIEWS" = "My Interviews";
+
+"SUBSCRIBE_SMS_DESC" = "I grant eTeki permission to send me SMS messages about technical interviews I am associated with";
+"SUBSCRIBE_EMAIL_DESC" = "Instead of SMS communication, I would prefer to receive eTeki communication by email and phone only.";
+
+
+"PROFILEINFO_FIRSTNAME" = "First Name*";
+"PROFILEINFO_LASTNAME" = "Last Name*";
+"PROFILEINFO_DISPLAYNAME" = "Display Name*";
+"PROFILEINFO_EMAIL" = "Email*";
+"PROFILEINFO_ALTERNATE_EMAIL" = "Alternate Email";
+"PROFILEINFO_PHONENUMBER" = "Phone Number*";
+"PROFILEINFO_ALTERNATE_PHONENUMBER" = "Alternate Phone Number";
+"OLD_PASSWORD_VALIDATION" = "Old Password can't be blank";
+"NEW_PASSWORD_VALIDATION" = "New Password can't be blank";
+"CONFIRM_PASSWORD_VALIDATION" = "Confirm Password can't be blank";
+"PASSWORD_8CHAR" = "Password should be greater than 8 characters.";
+"OLD_PASSWORD_8CHAR" = "Old Password should be at least 8 characters";
+"NEW_PASSWORD_8CHAR" = "New Password should be at least 8 characters";
+"CONFIRM_PASSWORD_8CHAR" = "Confirm Password should be at least 8 characters";
+"NEW_CONFIRM_NOTSAME" = "New password and Confirm Password are not same.";
+"OLD_CONFIRM_NOTSAME" = "Old Password and new password sould not be same.";
+"OLD_PASSWORD" = "Old Password";
+"NEW_PASSWORD" = "New Password";
+"CONFIRM_PASSWORD" = "Confirm Password";
+"OTP_CANT_BLANK" = "OTP can't be blank";
+
+
+"GENERATE_PASSCODE" = "Generate Passcode";
+"DONT_RECIEVE_OTP" = "Didn't receive OTP?";
+"RESEND_OTP" = "Resend OTP";
+
+"UPDATE" = "Update";
+"PRIMARY_INFO_UPDATED" = "Primary Information updated successfully";
+"ADDRESS_UPDATED" = "Address updated successfully";
+
+"OTP_VERIFICATION_MESSAGE" = "Thankyou for initiating SMS communication with eTeki. Please look to the mobile number you shared with us and enter the one time password sent you by SMS.";
+"US_SMS_ALERT_MESSAGE" = "State your confirmation with yes/no, this will confirm your sms settings in eteki.";
+
+"VERIFY" = "Verify";
+"UPLOAD" = "Upload";
+"REMOVE" = "Remove";
+"SPECIFICATION_PLACEHOLDER_TEXT" = "For example, request a specific code snippet or white board sample. Suggesting subtopics of Skills to be Assessed above is permissible, however, please refrain from detailing the exact line of questioning.";
+"JOB_DESCRIPTION_PLACEHOLDER_TEXT" = "Job Description*";
+
+"HIRING_COMPANY_LOGO" = "Hiring Company Logo";
+"JOB_REQUISITION_NUMBER" = "Job Requisition Number:";
+"AGENT_TYPE" = "Agent Type:";
+"LANGUAGE_PREFERENCE" = "Language Preference:";
+"LOCATION_PREFERENCE" = "Location Preference:";
+"HIRING_COMPANY_NAME" = "Hiring Company name:";
+"YEARS_OF_EXPERIENCE" = "Years of Experience:";
+"NUMBER_OF_CANDIDATES" = "Number of candidates:";
+"CLOSING_DATE" = "Closing Date:";
+"EDIT_JOB" = "Edit Job";
+"EDIT_CANDIDATE" = "Edit Candidate";
+"ADD_CANDIDATE"   = "Add Candidate";
+"COPY_JOB" = "Copy Job";
+"CREATE_JOB" = "Create Job";
+"JOB_TITLE" = "Enter Job Title*";
+"DATE_FIELD" = "dd-mm-yyyy";
+"TIME_ZONE" = "Time Zone*";
+"TIME_FIELD" = "--:--";
+"JOB_CLOSING_DATE" = "Job Closing Date*";
+"EMAIL_ADDRESS" = "Email Address*";
+"CANDIDATE_OWNER" = "Candidate Owner*";
+"UPLOAD_RESUME" = "Upload Resume*";
+"SAVE_AND_CONTINUE" = "Save and Continue";
+"AVAILABILITY" = "Availability";
+"EDIT" = "Edit";
+"WITHDRAW" = "Withdraw";
+"ANALYTICS" = "Analytics";
+"SELECT_STATUS" = "Select Status";
+"CANCEL" = "Cancel";
+"WITHDRAW" = "Withdraw";
+"TYPE_REASON" = "Type reason here";
+"NO_SLOTS" = "There are no slots for this candidate.";
+"NO_INTERVIEWS" = "There are no interviews for this candidate.";
+
+"NONE" = "None";
+"PENDING_INTERVIEW" = "Pending Interview";
+"WAITING_INTERVIEW" = "Waiting for Interviewer";
+"WAITING_FOR_CANDIDATE" = "Waiting for Candidate";
+"WITHDRAWN" = "Withdrawn";
+"WHITEBOARD_SNAPSHOTS" = "Whiteboard Snapshots:";
+"CANDIDATE_PIC_ID" = "Candidate Picture Id:";
+"CODE_SAMPLES" = "Coding Samples:";
+"AREAS_OF_EXPERTISE_CANT_BE_BLANK" = "Areas of Expertise can't be blank";
+"LINKEDIN_CANT_BE_BLANK" = "Linked In Field Can't be blank";
+"LINKED_URL_INVALID" = "Use the following format URL https://www.linked.com/user";
+"TWITTER_URL_INVALID" = "Use the following format URL https://www.twitter.com/user";
+"GOOGLE_PLUS_URL_INVALID" = "Use the following format URL https://www.google.com/user";
+"FACEBOOK_URL_INVALID" = "Use the following format URL https://www.facebook.com/user";
+"JOB_DUE_DATE_CANT_TODAYS_DATE" = "Job due date cannot be today's date.";
+"JOBDUE_DATE_CANT_BE_LESS_THAN" = "Job due date cannot be less than today's date.";
+
+"JOB_DETAILS" = "Job Details";
+"EDIT_CONTRIBUTORS" = "Edit Contributors";
+"MATCHED_INTERVIEWERS" = "Interviewers";
+"INTERVIEWS" = "Interviews";
+"CANDIDATE_REPORT_DUE_By" = "Report Due By:";
+"CANDIDATE_SMS_OPT_IN" = "Candidate SMS Opt-In";
+"NOTIFY_OF_INTERVIEW" = "Notify of Interview";
+"DISCLAIMER" = "Disclaimer";
+"DISCLAIMER_MESSAGE" = "Without adding candidate availability, this interview assignment will be delayed. Please obtain candidate availability and provide time slots for faster screening fulfillment.";
+"SUBMIT" = "Submit";
+"SKILL_TYPE_BLANK_MESSAGE" = "Skill Name can't be blank";
+"SKILL_TYPE_ALREADY_EXIST_MESSAGE" = "You are trying to suggest already existed skill.";
+"ALL" = "All";
+"CANCEL" = "Cancel";
+
+"SCREENED" = "Screened";
+"SUBMITTED" = "Submitted";
+"INTERVIEWED" = "Interviewed";
+"HIRED" = "Hired";
+"OFFERED" = "Offered";
+
+"OFFERED_DESC" = "Did this candidate get hired?";
+"INTERVIEWED_DESC" = "Did the hiring manager or hiring company make an offer to this candidate?";
+"SUBMITTED_DESC" = "Did the hiring manager or hiring company interview this candidate?";
+"SCREENED_DESC" = "Did you submit this candidate to the hiring manager or hiring company?";
+
+"MAILINATOR_NOT_ALLOWED" = "Mailinator domains are not allowed.";
+"SUSPECTED_PROXY" = "Suspected of using a proxy respondent.";
+"JOB_CLOSING_DATE_TEXT" = "Job closing date";
+"NO_CANDIDATES_TO_SHOW" = "No Candidates to show.";
+"JOB_DATE_EXPIRED_AVAILIBILITY_MESSAGE" = "Job due date has expired. To provide availability update the candidate report due date by extending the job due date.";
+
+"NO_JOBS_TO_DISPLAY" = "There are no jobs to show";
+"NO_INTERVIEWS_TO_DISPLAY" = "There are no interviews to show";
+"DO_YOU_RESCHEDULE" = "Do you want to reschedule or withdrawn the candidate?";
+
+//MARK: ReportView Constants
+"SCORE" = "Score";
+"AUDIOS" = "Audio";
+"VIDEOS" = "Video";
+"SKILLS" = "Skills";
+"CODE" = "Code";
+"WHITEBOARD" = "Whiteboard";
+
+//MARK: Skills View Constants
+
+"SKILL_ASSESMENT_DESC" = "Required skills covered, however, not enough time allocated to cover all the preferred skills also.";

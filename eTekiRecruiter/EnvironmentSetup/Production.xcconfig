@@ -1,0 +1,15 @@
+//
+//  Production.xcconfig
+//  eTekiRecruiter
+//
+//  Created by Siva Sagar Palakurthy on 02/08/19.
+//  Copyright © 2019 amzurtech. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+SERVER_URL = api.eteki.com
+timeout_interval = "120"
+protocol = "https"
+

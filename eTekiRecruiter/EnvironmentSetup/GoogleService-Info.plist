@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1085093669895-tupk1h10oancq8c8r1khmbrnv1a3ug4d.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1085093669895-tupk1h10oancq8c8r1khmbrnv1a3ug4d</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDhaAmFqHKx8dbL1eNu0Wlq_nKlYYgCp5o</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1085093669895</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.amzur.eTekiRecruiter</string>
+	<key>PROJECT_ID</key>
+	<string>etekirecruiter</string>
+	<key>STORAGE_BUCKET</key>
+	<string>etekirecruiter.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1085093669895:ios:5ebe2cedd6b6dc98f04ea2</string>
+	<key>DATABASE_URL</key>
+	<string>https://etekirecruiter.firebaseio.com</string>
+</dict>
+</plist>

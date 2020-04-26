@@ -1,0 +1,5 @@
+scheme("QA")
+open_report(true)
+clean(true)
+skip_build(true)
+disable_concurrent_testing(true)

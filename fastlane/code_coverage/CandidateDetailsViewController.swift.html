@@ -1,0 +1,2457 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+<title>CandidateDetailsViewController.swift - Slather</title>
+<link href="slather.css" media="all" rel="stylesheet">
+</head>
+<body>
+<header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
+<h2 class="cov_title">
+<span>Coverage for "CandidateDetailsViewController.swift" : </span><span class="cov_high">87.91%</span>
+</h2>
+<h4 class="cov_subtitle">(349 of 397 relevant lines covered)</h4>
+<h4 class="cov_filepath">eTekiRecruiter/Candidates/CandidateDetailsViewController.swift</h4>
+<table class="source_code">
+<tr class="never">
+<td class="num">1</td>
+<td class="src"><pre><code class="objc">//</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">2</td>
+<td class="src"><pre><code class="objc">//  CandidateDetailsViewController.swift</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">3</td>
+<td class="src"><pre><code class="objc">//  eTekiRecruiter</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">4</td>
+<td class="src"><pre><code class="objc">//</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">5</td>
+<td class="src"><pre><code class="objc">//  Created by Afreen Shaik on 06/11/19.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">6</td>
+<td class="src"><pre><code class="objc">//  Copyright &copy; 2019 amzurtech. All rights reserved.</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">7</td>
+<td class="src"><pre><code class="objc">//</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">8</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">9</td>
+<td class="src"><pre><code class="objc">import UIKit</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">10</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">11</td>
+<td class="src"><pre><code class="objc">struct cellData {</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">12</td>
+<td class="src"><pre><code class="objc">    var opened = Bool()</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">13</td>
+<td class="src"><pre><code class="objc">    var title = String()</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">14</td>
+<td class="src"><pre><code class="objc">    var sectionData = [[String : Any]]()</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">15</td>
+<td class="src"><pre><code class="objc">    var sectionData1 = [Any]()</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">16</td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">17</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">18</td>
+<td class="src"><pre><code class="objc">class CandidateDetailsViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">19</td>
+<td class="src"><pre><code class="objc">    </code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">20</td>
+<td class="src"><pre><code class="objc">    @IBOutlet weak var bgScrollView: UIScrollView!</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">21</td>
+<td class="src"><pre><code class="objc">    @IBOutlet weak var contentView: UIView!</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">22</td>
+<td class="src"><pre><code class="objc">    @IBOutlet weak var detailsTableView: UITableView!</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">23</td>
+<td class="src"><pre><code class="objc">    let documentInteractionController = UIDocumentInteractionController()</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">24</td>
+<td class="src"><pre><code class="objc">    var fileURL = URL(string: "")</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">25</td>
+<td class="src"><pre><code class="objc">    var candidateDetailsResponse = [String:Any]()</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">26</td>
+<td class="src"><pre><code class="objc">    var candidatesAPI: CandidatesAPIProtocol.Type = CandidatesAPI.self</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">27</td>
+<td class="src"><pre><code class="objc">    var candidateName: String = ""</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">28</td>
+<td class="src"><pre><code class="objc">    var availibilityStatus = false</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">29</td>
+<td class="src"><pre><code class="objc">    var interviewsStatus = false</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">30</td>
+<td class="src"><pre><code class="objc">    var tableViewData = [cellData]()</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">31</td>
+<td class="src"><pre><code class="objc">    var mainCell: detailsTableViewCell!</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">32</td>
+<td class="src"><pre><code class="objc">    var id = Int()</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">33</td>
+<td class="src"><pre><code class="objc">    var detailsArray = Dictionary&lt;String, Any&gt;()</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">34</td>
+<td class="src"><pre><code class="objc">    var availbilitiesData = [Any]()</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">35</td>
+<td class="src"><pre><code class="objc">    var interViewersData = [[String : Any]]()</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">36</td>
+<td class="src"><pre><code class="objc">    var jobTitle = ""</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">37</td>
+<td class="src"><pre><code class="objc">    var count = 5</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">38</td>
+<td class="src"><pre><code class="objc">    </code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">39</td>
+<td class="src"><pre><code class="objc">    lazy var  editCandidateItem: Array = { () -&gt; [UIBarButtonItem] in</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">40</td>
+<td class="src"><pre><code class="objc">        let customView = UIView(frame: CGRect(x: 0, y: 0, width: 50.0, height: 50.0))</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">41</td>
+<td class="src"><pre><code class="objc">        let imageView = UIImageView(frame: CGRect(x: 17.0, y: 12.5, width: 16.0, height: 19.0))</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">42</td>
+<td class="src"><pre><code class="objc">        imageView.image = UIImage(named: "edit")</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">43</td>
+<td class="src"><pre><code class="objc">        imageView.contentMode = .scaleAspectFit</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">44</td>
+<td class="src"><pre><code class="objc">        let editCandidate = UIButton(type: .custom)</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">45</td>
+<td class="src"><pre><code class="objc">        editCandidate.frame.size.width = 50.0</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">46</td>
+<td class="src"><pre><code class="objc">        editCandidate.frame.size.height = 44.0</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">47</td>
+<td class="src"><pre><code class="objc">        editCandidate.isEnabled = true</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">48</td>
+<td class="src"><pre><code class="objc">        editCandidate.addTarget(self, action: #selector(editCandidateAction(_:)), for: .touchUpInside)</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">49</td>
+<td class="src"><pre><code class="objc">        customView.addSubview(imageView)</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">50</td>
+<td class="src"><pre><code class="objc">        customView.addSubview(editCandidate)</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">51</td>
+<td class="src"><pre><code class="objc">        let item = UIBarButtonItem(customView: customView)</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">52</td>
+<td class="src"><pre><code class="objc">        return [item]</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">53</td>
+<td class="src"><pre><code class="objc">    }()</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="never">
+<td class="num">54</td>
+<td class="src"><pre><code class="objc">    </code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">55</td>
+<td class="src"><pre><code class="objc">    override func viewDidLoad() {</code></pre></td>
+<td class="coverage">14x</td>
+</tr>
+<tr class="covered">
+<td class="num">56</td>
+<td class="src"><pre><code class="objc">        super.viewDidLoad()</code></pre></td>
+<td class="coverage">14x</td>
+</tr>
+<tr class="covered">
+<td class="num">57</td>
+<td class="src"><pre><code class="objc">        navigationItem.title = candidateName</code></pre></td>
+<td class="coverage">14x</td>
+</tr>
+<tr class="covered">
+<td class="num">58</td>
+<td class="src"><pre><code class="objc">        tableViewData = [cellData(opened: true, title: "", sectionData: [],  sectionData1 : []),</code></pre></td>
+<td class="coverage">14x</td>
+</tr>
+<tr class="covered">
+<td class="num">59</td>
+<td class="src"><pre><code class="objc">                         cellData(opened: false, title: "Candidate Availability", sectionData: [],  sectionData1 : availbilitiesData),</code></pre></td>
+<td class="coverage">14x</td>
+</tr>
+<tr class="covered">
+<td class="num">60</td>
+<td class="src"><pre><code class="objc">                         cellData(opened: false, title: "Interviews (0)", sectionData: interViewersData, sectionData1 : [])]</code></pre></td>
+<td class="coverage">14x</td>
+</tr>
+<tr class="covered">
+<td class="num">61</td>
+<td class="src"><pre><code class="objc">        </code></pre></td>
+<td class="coverage">14x</td>
+</tr>
+<tr class="covered">
+<td class="num">62</td>
+<td class="src"><pre><code class="objc">        getCandidateDetails()</code></pre></td>
+<td class="coverage">14x</td>
+</tr>
+<tr class="covered">
+<td class="num">63</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">14x</td>
+</tr>
+<tr class="never">
+<td class="num">64</td>
+<td class="src"><pre><code class="objc">    </code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">65</td>
+<td class="src"><pre><code class="objc">    func numberOfSections(in tableView: UITableView) -&gt; Int {</code></pre></td>
+<td class="coverage">51x</td>
+</tr>
+<tr class="covered">
+<td class="num">66</td>
+<td class="src"><pre><code class="objc">        return tableViewData.count</code></pre></td>
+<td class="coverage">51x</td>
+</tr>
+<tr class="covered">
+<td class="num">67</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">51x</td>
+</tr>
+<tr class="never">
+<td class="num">68</td>
+<td class="src"><pre><code class="objc">    </code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">69</td>
+<td class="src"><pre><code class="objc">    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int {</code></pre></td>
+<td class="coverage">151x</td>
+</tr>
+<tr class="covered">
+<td class="num">70</td>
+<td class="src"><pre><code class="objc">        if(tableViewData[section].opened == true){</code></pre></td>
+<td class="coverage">151x</td>
+</tr>
+<tr class="covered">
+<td class="num">71</td>
+<td class="src"><pre><code class="objc">            if(section == 0){</code></pre></td>
+<td class="coverage">56x</td>
+</tr>
+<tr class="covered">
+<td class="num">72</td>
+<td class="src"><pre><code class="objc">                return count</code></pre></td>
+<td class="coverage">49x</td>
+</tr>
+<tr class="covered">
+<td class="num">73</td>
+<td class="src"><pre><code class="objc">            }</code></pre></td>
+<td class="coverage">49x</td>
+</tr>
+<tr class="covered">
+<td class="num">74</td>
+<td class="src"><pre><code class="objc">            else if(section == 1){</code></pre></td>
+<td class="coverage">7x</td>
+</tr>
+<tr class="covered">
+<td class="num">75</td>
+<td class="src"><pre><code class="objc">                if(tableViewData[section].sectionData1.count == 0) {</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">76</td>
+<td class="src"><pre><code class="objc">                    return tableViewData[section].sectionData1.count+2</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="covered">
+<td class="num">77</td>
+<td class="src"><pre><code class="objc">                }else {</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="covered">
+<td class="num">78</td>
+<td class="src"><pre><code class="objc">                    print(tableViewData[section].sectionData1.count+1)</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="covered">
+<td class="num">79</td>
+<td class="src"><pre><code class="objc">                    return tableViewData[section].sectionData1.count+1</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="covered">
+<td class="num">80</td>
+<td class="src"><pre><code class="objc">                }</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="covered">
+<td class="num">81</td>
+<td class="src"><pre><code class="objc">            }</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">82</td>
+<td class="src"><pre><code class="objc">            else {</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">83</td>
+<td class="src"><pre><code class="objc">                if(tableViewData[section].sectionData.count == 0) {</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">84</td>
+<td class="src"><pre><code class="objc">                    return tableViewData[section].sectionData.count+2</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">85</td>
+<td class="src"><pre><code class="objc">                }else {</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="covered">
+<td class="num">86</td>
+<td class="src"><pre><code class="objc">                    return  tableViewData[section].sectionData.count+1</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="covered">
+<td class="num">87</td>
+<td class="src"><pre><code class="objc">                }</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="missed">
+<td class="num">88</td>
+<td class="src"><pre><code class="objc">            }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="covered">
+<td class="num">89</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">95x</td>
+</tr>
+<tr class="covered">
+<td class="num">90</td>
+<td class="src"><pre><code class="objc">        else{</code></pre></td>
+<td class="coverage">95x</td>
+</tr>
+<tr class="covered">
+<td class="num">91</td>
+<td class="src"><pre><code class="objc">            return 1</code></pre></td>
+<td class="coverage">95x</td>
+</tr>
+<tr class="covered">
+<td class="num">92</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">95x</td>
+</tr>
+<tr class="missed">
+<td class="num">93</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="never">
+<td class="num">94</td>
+<td class="src"><pre><code class="objc">    </code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">95</td>
+<td class="src"><pre><code class="objc">    //    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -&gt; CGFloat {</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">96</td>
+<td class="src"><pre><code class="objc">    //        if section != 0 {</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">97</td>
+<td class="src"><pre><code class="objc">    //            return 50</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">98</td>
+<td class="src"><pre><code class="objc">    //        }</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">99</td>
+<td class="src"><pre><code class="objc">    //        return 1.0</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">100</td>
+<td class="src"><pre><code class="objc">    //    }</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">101</td>
+<td class="src"><pre><code class="objc">    </code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">102</td>
+<td class="src"><pre><code class="objc">    //    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -&gt; UIView? {</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">103</td>
+<td class="src"><pre><code class="objc">    //</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">104</td>
+<td class="src"><pre><code class="objc">    //        if section == 0 {</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">105</td>
+<td class="src"><pre><code class="objc">    //            return UIView()</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">106</td>
+<td class="src"><pre><code class="objc">    //        } else {</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">107</td>
+<td class="src"><pre><code class="objc">    //            let vw = UIView()</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">108</td>
+<td class="src"><pre><code class="objc">    //            vw.backgroundColor = UIColor.red</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">109</td>
+<td class="src"><pre><code class="objc">    //            return vw</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">110</td>
+<td class="src"><pre><code class="objc">    //        }</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">111</td>
+<td class="src"><pre><code class="objc">    //</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">112</td>
+<td class="src"><pre><code class="objc">    //    }</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">113</td>
+<td class="src"><pre><code class="objc">    </code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">114</td>
+<td class="src"><pre><code class="objc">    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell {</code></pre></td>
+<td class="coverage">134x</td>
+</tr>
+<tr class="covered">
+<td class="num">115</td>
+<td class="src"><pre><code class="objc">        </code></pre></td>
+<td class="coverage">134x</td>
+</tr>
+<tr class="covered">
+<td class="num">116</td>
+<td class="src"><pre><code class="objc">        if(indexPath.row == 0) {</code></pre></td>
+<td class="coverage">134x</td>
+</tr>
+<tr class="covered">
+<td class="num">117</td>
+<td class="src"><pre><code class="objc">            if(indexPath.section == 0){</code></pre></td>
+<td class="coverage">56x</td>
+</tr>
+<tr class="covered">
+<td class="num">118</td>
+<td class="src"><pre><code class="objc">                let cell = detailsTableView.dequeueReusableCell(withIdentifier: CellIdentifiers.candidateDetailsCell) as! detailsTableViewCell</code></pre></td>
+<td class="coverage">18x</td>
+</tr>
+<tr class="covered">
+<td class="num">119</td>
+<td class="src"><pre><code class="objc">                print(detailsArray)</code></pre></td>
+<td class="coverage">18x</td>
+</tr>
+<tr class="covered">
+<td class="num">120</td>
+<td class="src"><pre><code class="objc">                if let name = detailsArray["full_name"] as? String{</code></pre></td>
+<td class="coverage">18x</td>
+</tr>
+<tr class="covered">
+<td class="num">121</td>
+<td class="src"><pre><code class="objc">                    cell.candidateNameLabel.text = name</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">122</td>
+<td class="src"><pre><code class="objc">                    self.navigationItem.title = name</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">123</td>
+<td class="src"><pre><code class="objc">                }</code></pre></td>
+<td class="coverage">18x</td>
+</tr>
+<tr class="covered">
+<td class="num">124</td>
+<td class="src"><pre><code class="objc">                if let contact = detailsArray["contact"] as? String {</code></pre></td>
+<td class="coverage">18x</td>
+</tr>
+<tr class="covered">
+<td class="num">125</td>
+<td class="src"><pre><code class="objc">                    cell.contactLabel.text = contact</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">126</td>
+<td class="src"><pre><code class="objc">                }</code></pre></td>
+<td class="coverage">18x</td>
+</tr>
+<tr class="covered">
+<td class="num">127</td>
+<td class="src"><pre><code class="objc">                if let email = detailsArray["email"] as? String{</code></pre></td>
+<td class="coverage">18x</td>
+</tr>
+<tr class="covered">
+<td class="num">128</td>
+<td class="src"><pre><code class="objc">                    cell.mailLabel.text = email</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">129</td>
+<td class="src"><pre><code class="objc">                }</code></pre></td>
+<td class="coverage">18x</td>
+</tr>
+<tr class="covered">
+<td class="num">130</td>
+<td class="src"><pre><code class="objc">                if let profilePic = detailsArray["profile_pics"] as? Dictionary &lt;String, String&gt; {</code></pre></td>
+<td class="coverage">18x</td>
+</tr>
+<tr class="covered">
+<td class="num">131</td>
+<td class="src"><pre><code class="objc">                    if let profileStr = profilePic["profile_thumb_url"] {</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">132</td>
+<td class="src"><pre><code class="objc">                        cell.profileImageView.sd_setImage(with: URL(string: profileStr), placeholderImage: UIImage(named: "NoImage"))</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">133</td>
+<td class="src"><pre><code class="objc">                        cell.profileImageView.backgroundColor = UIColor(red: 210.0/255.0, green: 217.0/255.0, blue: 221.0/255.0, alpha: 1.0)</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">134</td>
+<td class="src"><pre><code class="objc">                        //                        cell.profileImageView.backgroundColor = AppTheme.appBackgroundColor</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">135</td>
+<td class="src"><pre><code class="objc">                    }</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">136</td>
+<td class="src"><pre><code class="objc">                } </code></pre></td>
+<td class="coverage">18x</td>
+</tr>
+<tr class="covered">
+<td class="num">137</td>
+<td class="src"><pre><code class="objc">                if let fileURLString = detailsArray["resume"] as? String {</code></pre></td>
+<td class="coverage">18x</td>
+</tr>
+<tr class="covered">
+<td class="num">138</td>
+<td class="src"><pre><code class="objc">                    cell.documentButton.isHidden = false</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">139</td>
+<td class="src"><pre><code class="objc">                    cell.documentImageView.isHidden = false</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">140</td>
+<td class="src"><pre><code class="objc">                    let fileurl =  URL(string: fileURLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">141</td>
+<td class="src"><pre><code class="objc">                    </code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">142</td>
+<td class="src"><pre><code class="objc">                    if fileurl?.pathExtension == "pdf" {</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">143</td>
+<td class="src"><pre><code class="objc">                        cell.documentImageView.image = UIImage(named: "pdf_icon")</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">144</td>
+<td class="src"><pre><code class="objc">                    } else {</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="missed">
+<td class="num">145</td>
+<td class="src"><pre><code class="objc">                        cell.documentImageView.image = UIImage(named: "document_icon")</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="covered">
+<td class="num">146</td>
+<td class="src"><pre><code class="objc">                    }</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">147</td>
+<td class="src"><pre><code class="objc">                } else {</code></pre></td>
+<td class="coverage">18x</td>
+</tr>
+<tr class="covered">
+<td class="num">148</td>
+<td class="src"><pre><code class="objc">                    cell.documentButton.isHidden = true</code></pre></td>
+<td class="coverage">14x</td>
+</tr>
+<tr class="covered">
+<td class="num">149</td>
+<td class="src"><pre><code class="objc">                    cell.documentImageView.isHidden = true</code></pre></td>
+<td class="coverage">14x</td>
+</tr>
+<tr class="covered">
+<td class="num">150</td>
+<td class="src"><pre><code class="objc">                }</code></pre></td>
+<td class="coverage">18x</td>
+</tr>
+<tr class="covered">
+<td class="num">151</td>
+<td class="src"><pre><code class="objc">                return cell</code></pre></td>
+<td class="coverage">18x</td>
+</tr>
+<tr class="covered">
+<td class="num">152</td>
+<td class="src"><pre><code class="objc">            } else {</code></pre></td>
+<td class="coverage">38x</td>
+</tr>
+<tr class="covered">
+<td class="num">153</td>
+<td class="src"><pre><code class="objc">                let cell  = detailsTableView.dequeueReusableCell(withIdentifier: CellIdentifiers.candidateHeader) as! detailsTableViewCell</code></pre></td>
+<td class="coverage">38x</td>
+</tr>
+<tr class="covered">
+<td class="num">154</td>
+<td class="src"><pre><code class="objc">                cell.title.text = tableViewData[indexPath.section].title</code></pre></td>
+<td class="coverage">38x</td>
+</tr>
+<tr class="covered">
+<td class="num">155</td>
+<td class="src"><pre><code class="objc">                return cell</code></pre></td>
+<td class="coverage">38x</td>
+</tr>
+<tr class="covered">
+<td class="num">156</td>
+<td class="src"><pre><code class="objc">            }</code></pre></td>
+<td class="coverage">38x</td>
+</tr>
+<tr class="covered">
+<td class="num">157</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">78x</td>
+</tr>
+<tr class="covered">
+<td class="num">158</td>
+<td class="src"><pre><code class="objc">        else {</code></pre></td>
+<td class="coverage">78x</td>
+</tr>
+<tr class="covered">
+<td class="num">159</td>
+<td class="src"><pre><code class="objc">            </code></pre></td>
+<td class="coverage">78x</td>
+</tr>
+<tr class="covered">
+<td class="num">160</td>
+<td class="src"><pre><code class="objc">            if(indexPath.section == 0){</code></pre></td>
+<td class="coverage">78x</td>
+</tr>
+<tr class="covered">
+<td class="num">161</td>
+<td class="src"><pre><code class="objc">                let cell = detailsTableView.dequeueReusableCell(withIdentifier: CellIdentifiers.candidateAvailibilities) as! detailsTableViewCell</code></pre></td>
+<td class="coverage">70x</td>
+</tr>
+<tr class="covered">
+<td class="num">162</td>
+<td class="src"><pre><code class="objc">                if(indexPath.row == 1) {</code></pre></td>
+<td class="coverage">70x</td>
+</tr>
+<tr class="covered">
+<td class="num">163</td>
+<td class="src"><pre><code class="objc">                    if let createdAt = detailsArray["created_at"] as? String {</code></pre></td>
+<td class="coverage">17x</td>
+</tr>
+<tr class="covered">
+<td class="num">164</td>
+<td class="src"><pre><code class="objc">                        </code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">165</td>
+<td class="src"><pre><code class="objc">                        let formatedDate = self.updateFeedBackDate(reportDueDate: createdAt)</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">166</td>
+<td class="src"><pre><code class="objc">                        </code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">167</td>
+<td class="src"><pre><code class="objc">                        cell.availibilityLabel.text = "Created At:" + " " + formatedDate</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">168</td>
+<td class="src"><pre><code class="objc">                    }</code></pre></td>
+<td class="coverage">17x</td>
+</tr>
+<tr class="covered">
+<td class="num">169</td>
+<td class="src"><pre><code class="objc">                    </code></pre></td>
+<td class="coverage">17x</td>
+</tr>
+<tr class="covered">
+<td class="num">170</td>
+<td class="src"><pre><code class="objc">                }else if(indexPath.row == 2){</code></pre></td>
+<td class="coverage">70x</td>
+</tr>
+<tr class="covered">
+<td class="num">171</td>
+<td class="src"><pre><code class="objc">                    if let report_due = self.detailsArray["feedback_due_by"] as? String {</code></pre></td>
+<td class="coverage">17x</td>
+</tr>
+<tr class="covered">
+<td class="num">172</td>
+<td class="src"><pre><code class="objc">                        </code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">173</td>
+<td class="src"><pre><code class="objc">                        print(report_due)</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">174</td>
+<td class="src"><pre><code class="objc">                        let formatedDate = self.updateFeedBackDate(reportDueDate: report_due)</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">175</td>
+<td class="src"><pre><code class="objc">                        print(formatedDate)</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">176</td>
+<td class="src"><pre><code class="objc">                        cell.availibilityLabel.text = "Report due by:" + " " + formatedDate</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">177</td>
+<td class="src"><pre><code class="objc">                    }</code></pre></td>
+<td class="coverage">17x</td>
+</tr>
+<tr class="covered">
+<td class="num">178</td>
+<td class="src"><pre><code class="objc">                }else if(indexPath.row == 3){</code></pre></td>
+<td class="coverage">70x</td>
+</tr>
+<tr class="covered">
+<td class="num">179</td>
+<td class="src"><pre><code class="objc">                    if let owner = detailsArray["owner_name"] as? String {</code></pre></td>
+<td class="coverage">17x</td>
+</tr>
+<tr class="covered">
+<td class="num">180</td>
+<td class="src"><pre><code class="objc">                        cell.availibilityLabel.text = "Candidate Owner:" + " " + owner</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">181</td>
+<td class="src"><pre><code class="objc">                    }</code></pre></td>
+<td class="coverage">17x</td>
+</tr>
+<tr class="covered">
+<td class="num">182</td>
+<td class="src"><pre><code class="objc">                }else if(indexPath.row == 4){</code></pre></td>
+<td class="coverage">70x</td>
+</tr>
+<tr class="covered">
+<td class="num">183</td>
+<td class="src"><pre><code class="objc">                    if let status = detailsArray["status"] as? String {</code></pre></td>
+<td class="coverage">17x</td>
+</tr>
+<tr class="covered">
+<td class="num">184</td>
+<td class="src"><pre><code class="objc">                        cell.availibilityLabel.text = "Status:" + " " + status</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">185</td>
+<td class="src"><pre><code class="objc">                    }</code></pre></td>
+<td class="coverage">17x</td>
+</tr>
+<tr class="covered">
+<td class="num">186</td>
+<td class="src"><pre><code class="objc">                } else {</code></pre></td>
+<td class="coverage">70x</td>
+</tr>
+<tr class="covered">
+<td class="num">187</td>
+<td class="src"><pre><code class="objc">                    if(count == 6){</code></pre></td>
+<td class="coverage">53x</td>
+</tr>
+<tr class="covered">
+<td class="num">188</td>
+<td class="src"><pre><code class="objc">                        if let reason = detailsArray["withdraw_reason"] as? String {</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="covered">
+<td class="num">189</td>
+<td class="src"><pre><code class="objc">                            cell.availibilityLabel.text = "Withdrawn Reason:" + " " + reason</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="covered">
+<td class="num">190</td>
+<td class="src"><pre><code class="objc">                        }</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="covered">
+<td class="num">191</td>
+<td class="src"><pre><code class="objc">                    }</code></pre></td>
+<td class="coverage">53x</td>
+</tr>
+<tr class="covered">
+<td class="num">192</td>
+<td class="src"><pre><code class="objc">                }</code></pre></td>
+<td class="coverage">70x</td>
+</tr>
+<tr class="covered">
+<td class="num">193</td>
+<td class="src"><pre><code class="objc">                return cell</code></pre></td>
+<td class="coverage">70x</td>
+</tr>
+<tr class="covered">
+<td class="num">194</td>
+<td class="src"><pre><code class="objc">            }</code></pre></td>
+<td class="coverage">70x</td>
+</tr>
+<tr class="covered">
+<td class="num">195</td>
+<td class="src"><pre><code class="objc">            else if(indexPath.section == 1) {</code></pre></td>
+<td class="coverage">8x</td>
+</tr>
+<tr class="covered">
+<td class="num">196</td>
+<td class="src"><pre><code class="objc">                let cell = detailsTableView.dequeueReusableCell(withIdentifier: CellIdentifiers.candidateAvailibilities) as! detailsTableViewCell</code></pre></td>
+<td class="coverage">5x</td>
+</tr>
+<tr class="covered">
+<td class="num">197</td>
+<td class="src"><pre><code class="objc">                if(indexPath.row == tableViewData[indexPath.section].sectionData1.count+1) {</code></pre></td>
+<td class="coverage">5x</td>
+</tr>
+<tr class="covered">
+<td class="num">198</td>
+<td class="src"><pre><code class="objc">                    cell.availibilityLabel.text = "NO_SLOTS".localized</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">199</td>
+<td class="src"><pre><code class="objc">                    cell.availibilityLabel.textAlignment = .center</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">200</td>
+<td class="src"><pre><code class="objc">                    cell.availibilityLabel.font = cell.availibilityLabel.font.withSize(14)</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">201</td>
+<td class="src"><pre><code class="objc">                    cell.availibilityLabel.textColor = AppTheme.placeHolderColor</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">202</td>
+<td class="src"><pre><code class="objc">                }else {</code></pre></td>
+<td class="coverage">5x</td>
+</tr>
+<tr class="covered">
+<td class="num">203</td>
+<td class="src"><pre><code class="objc">                    let availibilityDate = tableViewData[indexPath.section].sectionData1[indexPath.row-1]</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">204</td>
+<td class="src"><pre><code class="objc">                    cell.availibilityLabel.text = getfullDate(reportDueBy: availibilityDate as! String)</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">205</td>
+<td class="src"><pre><code class="objc">                    cell.availibilityLabel.textAlignment = .left</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">206</td>
+<td class="src"><pre><code class="objc">                    cell.availibilityLabel.textColor = ProfileScreenFonts.textColor</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">207</td>
+<td class="src"><pre><code class="objc">                }</code></pre></td>
+<td class="coverage">5x</td>
+</tr>
+<tr class="covered">
+<td class="num">208</td>
+<td class="src"><pre><code class="objc">                return cell</code></pre></td>
+<td class="coverage">5x</td>
+</tr>
+<tr class="covered">
+<td class="num">209</td>
+<td class="src"><pre><code class="objc">            } else {</code></pre></td>
+<td class="coverage">5x</td>
+</tr>
+<tr class="covered">
+<td class="num">210</td>
+<td class="src"><pre><code class="objc">                if(indexPath.row == tableViewData[indexPath.section].sectionData.count+1) {</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="missed">
+<td class="num">211</td>
+<td class="src"><pre><code class="objc">                    let cell = detailsTableView.dequeueReusableCell(withIdentifier: CellIdentifiers.candidateAvailibilities) as! detailsTableViewCell</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">212</td>
+<td class="src"><pre><code class="objc">                    cell.availibilityLabel.text = "NO_INTERVIEWS".localized</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">213</td>
+<td class="src"><pre><code class="objc">                    cell.availibilityLabel.textAlignment = .center</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">214</td>
+<td class="src"><pre><code class="objc">                    cell.availibilityLabel.font = cell.availibilityLabel.font.withSize(14)</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">215</td>
+<td class="src"><pre><code class="objc">                    cell.availibilityLabel.textColor = AppTheme.placeHolderColor</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">216</td>
+<td class="src"><pre><code class="objc">                    return cell</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="covered">
+<td class="num">217</td>
+<td class="src"><pre><code class="objc">                } else {</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">218</td>
+<td class="src"><pre><code class="objc">                    let cell = detailsTableView.dequeueReusableCell(withIdentifier: CellIdentifiers.candidateInterViews) as! detailsTableViewCell</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">219</td>
+<td class="src"><pre><code class="objc">                    </code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">220</td>
+<td class="src"><pre><code class="objc">                    </code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">221</td>
+<td class="src"><pre><code class="objc">                    let interviewsData = tableViewData[indexPath.section].sectionData[indexPath.row-1]</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">222</td>
+<td class="src"><pre><code class="objc">                    print(interviewsData)</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">223</td>
+<td class="src"><pre><code class="objc">                    </code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">224</td>
+<td class="src"><pre><code class="objc">                    if let name = tableViewData[indexPath.section].sectionData[indexPath.row-1]["interviewers"] as? [String] {</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">225</td>
+<td class="src"><pre><code class="objc">                        if (name != []) {</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">226</td>
+<td class="src"><pre><code class="objc">                            cell.interViewerName.text = name[0]</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">227</td>
+<td class="src"><pre><code class="objc">                        } else {</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">228</td>
+<td class="src"><pre><code class="objc">                            cell.interViewerName.text = "None"</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="covered">
+<td class="num">229</td>
+<td class="src"><pre><code class="objc">                        }</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">230</td>
+<td class="src"><pre><code class="objc">                    }</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">231</td>
+<td class="src"><pre><code class="objc">                    </code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">232</td>
+<td class="src"><pre><code class="objc">                    </code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">233</td>
+<td class="src"><pre><code class="objc">                    if let date = tableViewData[indexPath.section].sectionData[indexPath.row-1]["start_time"] as? String {</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">234</td>
+<td class="src"><pre><code class="objc">                        if (date != "&lt;null&gt;") {</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="covered">
+<td class="num">235</td>
+<td class="src"><pre><code class="objc">                            cell.interviewerDesignation.text = jobTitle + " " + "(\(getfullDate(reportDueBy: date)))"</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">236</td>
+<td class="src"><pre><code class="objc">                        } else {</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="covered">
+<td class="num">237</td>
+<td class="src"><pre><code class="objc">                            cell.interviewerDesignation.text = jobTitle</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">238</td>
+<td class="src"><pre><code class="objc">                        }</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="covered">
+<td class="num">239</td>
+<td class="src"><pre><code class="objc">                    } else {</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">240</td>
+<td class="src"><pre><code class="objc">                        cell.interviewerDesignation.text = jobTitle</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">241</td>
+<td class="src"><pre><code class="objc">                    }</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">242</td>
+<td class="src"><pre><code class="objc">                    </code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">243</td>
+<td class="src"><pre><code class="objc">                    </code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">244</td>
+<td class="src"><pre><code class="objc">                    </code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">245</td>
+<td class="src"><pre><code class="objc">                    if let status =  tableViewData[indexPath.section].sectionData[indexPath.row-1]["status"] as? String {</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">246</td>
+<td class="src"><pre><code class="objc">                        </code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">247</td>
+<td class="src"><pre><code class="objc">                        cell.statusButton.setTitle("  " + status + "  " , for: .normal)</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">248</td>
+<td class="src"><pre><code class="objc">                        if status != .completed {</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">249</td>
+<td class="src"><pre><code class="objc">                            cell.statusButton.layer.borderWidth = 1</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">250</td>
+<td class="src"><pre><code class="objc">                            cell.statusButton.layer.borderColor = AppTheme.interViewerCancelledColor.cgColor</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">251</td>
+<td class="src"><pre><code class="objc">                            cell.statusButton.setTitleColor(AppTheme.interViewerCancelledColor, for: .normal)</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">252</td>
+<td class="src"><pre><code class="objc">                        }else {</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">253</td>
+<td class="src"><pre><code class="objc">                            cell.statusButton.layer.borderWidth = 1</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="covered">
+<td class="num">254</td>
+<td class="src"><pre><code class="objc">                            cell.statusButton.layer.borderColor = AppTheme.interViewCompletedColor.cgColor</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="covered">
+<td class="num">255</td>
+<td class="src"><pre><code class="objc">                            cell.statusButton.setTitleColor(AppTheme.interViewCompletedColor, for: .normal)</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="covered">
+<td class="num">256</td>
+<td class="src"><pre><code class="objc">                        }</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">257</td>
+<td class="src"><pre><code class="objc">                    }</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">258</td>
+<td class="src"><pre><code class="objc">                    </code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">259</td>
+<td class="src"><pre><code class="objc">                    return cell</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">260</td>
+<td class="src"><pre><code class="objc">                }</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="missed">
+<td class="num">261</td>
+<td class="src"><pre><code class="objc">            }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">262</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">263</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="never">
+<td class="num">264</td>
+<td class="src"><pre><code class="objc">    </code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">265</td>
+<td class="src"><pre><code class="objc">    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="covered">
+<td class="num">266</td>
+<td class="src"><pre><code class="objc">        if(indexPath.row == 0 &amp;&amp; indexPath.section != 0) {</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="covered">
+<td class="num">267</td>
+<td class="src"><pre><code class="objc">            if(tableViewData[indexPath.section].opened == true){</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="covered">
+<td class="num">268</td>
+<td class="src"><pre><code class="objc">                tableViewData[indexPath.section].opened = false</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">269</td>
+<td class="src"><pre><code class="objc">                let sections = IndexSet.init(integer: indexPath.section)</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">270</td>
+<td class="src"><pre><code class="objc">                tableView.reloadSections(sections, with: .none)</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">271</td>
+<td class="src"><pre><code class="objc">            }</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="covered">
+<td class="num">272</td>
+<td class="src"><pre><code class="objc">            else{</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="covered">
+<td class="num">273</td>
+<td class="src"><pre><code class="objc">                tableViewData[indexPath.section].opened = true</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">274</td>
+<td class="src"><pre><code class="objc">                let sections = IndexSet.init(integer: indexPath.section)</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">275</td>
+<td class="src"><pre><code class="objc">                tableView.reloadSections(sections, with: .none)</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">276</td>
+<td class="src"><pre><code class="objc">            }</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="covered">
+<td class="num">277</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="covered">
+<td class="num">278</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="never">
+<td class="num">279</td>
+<td class="src"><pre><code class="objc">    </code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">280</td>
+<td class="src"><pre><code class="objc">    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -&gt; CGFloat {</code></pre></td>
+<td class="coverage">205x</td>
+</tr>
+<tr class="covered">
+<td class="num">281</td>
+<td class="src"><pre><code class="objc">        if(indexPath.section == 0 &amp;&amp; indexPath.row == 0){</code></pre></td>
+<td class="coverage">205x</td>
+</tr>
+<tr class="covered">
+<td class="num">282</td>
+<td class="src"><pre><code class="objc">            return 108</code></pre></td>
+<td class="coverage">26x</td>
+</tr>
+<tr class="covered">
+<td class="num">283</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">179x</td>
+</tr>
+<tr class="covered">
+<td class="num">284</td>
+<td class="src"><pre><code class="objc">        else {</code></pre></td>
+<td class="coverage">179x</td>
+</tr>
+<tr class="covered">
+<td class="num">285</td>
+<td class="src"><pre><code class="objc">            return UITableView.automaticDimension</code></pre></td>
+<td class="coverage">179x</td>
+</tr>
+<tr class="covered">
+<td class="num">286</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">179x</td>
+</tr>
+<tr class="missed">
+<td class="num">287</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="covered">
+<td class="num">288</td>
+<td class="src"><pre><code class="objc">    override func viewDidLayoutSubviews() {</code></pre></td>
+<td class="coverage">21x</td>
+</tr>
+<tr class="covered">
+<td class="num">289</td>
+<td class="src"><pre><code class="objc">        bgScrollView.contentSize = CGSize(width: view.frame.size.width, height: contentView.frame.size.height)</code></pre></td>
+<td class="coverage">21x</td>
+</tr>
+<tr class="covered">
+<td class="num">290</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">21x</td>
+</tr>
+<tr class="never">
+<td class="num">291</td>
+<td class="src"><pre><code class="objc">    </code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">292</td>
+<td class="src"><pre><code class="objc">    func getCandidateDetails() {</code></pre></td>
+<td class="coverage">16x</td>
+</tr>
+<tr class="covered">
+<td class="num">293</td>
+<td class="src"><pre><code class="objc">        self.showSpinner()</code></pre></td>
+<td class="coverage">16x</td>
+</tr>
+<tr class="covered">
+<td class="num">294</td>
+<td class="src"><pre><code class="objc">        let manager = CandidatesManager(candidateID: "\(id)")</code></pre></td>
+<td class="coverage">16x</td>
+</tr>
+<tr class="covered">
+<td class="num">295</td>
+<td class="src"><pre><code class="objc">        self.candidatesAPI.getCandidateDetails(candidatesManager: manager) {(response , error) in</code></pre></td>
+<td class="coverage">16x</td>
+</tr>
+<tr class="covered">
+<td class="num">296</td>
+<td class="src"><pre><code class="objc">            if(response != nil){</code></pre></td>
+<td class="coverage">16x</td>
+</tr>
+<tr class="covered">
+<td class="num">297</td>
+<td class="src"><pre><code class="objc">                </code></pre></td>
+<td class="coverage">16x</td>
+</tr>
+<tr class="covered">
+<td class="num">298</td>
+<td class="src"><pre><code class="objc">                if let detailsReponse = response {</code></pre></td>
+<td class="coverage">16x</td>
+</tr>
+<tr class="covered">
+<td class="num">299</td>
+<td class="src"><pre><code class="objc">                    self.candidateDetailsResponse =  detailsReponse</code></pre></td>
+<td class="coverage">16x</td>
+</tr>
+<tr class="covered">
+<td class="num">300</td>
+<td class="src"><pre><code class="objc">                    print(self.candidateDetailsResponse)</code></pre></td>
+<td class="coverage">16x</td>
+</tr>
+<tr class="covered">
+<td class="num">301</td>
+<td class="src"><pre><code class="objc">                }</code></pre></td>
+<td class="coverage">16x</td>
+</tr>
+<tr class="covered">
+<td class="num">302</td>
+<td class="src"><pre><code class="objc">                </code></pre></td>
+<td class="coverage">16x</td>
+</tr>
+<tr class="covered">
+<td class="num">303</td>
+<td class="src"><pre><code class="objc">                let success = response?["success"] as? Bool ?? false</code></pre></td>
+<td class="coverage">16x</td>
+</tr>
+<tr class="covered">
+<td class="num">304</td>
+<td class="src"><pre><code class="objc">                </code></pre></td>
+<td class="coverage">16x</td>
+</tr>
+<tr class="covered">
+<td class="num">305</td>
+<td class="src"><pre><code class="objc">                if success {</code></pre></td>
+<td class="coverage">16x</td>
+</tr>
+<tr class="covered">
+<td class="num">306</td>
+<td class="src"><pre><code class="objc">                    </code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">307</td>
+<td class="src"><pre><code class="objc">                    if let recruitertTimeZone = response?["recruiter_time_zone"]  as? String {</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="missed">
+<td class="num">308</td>
+<td class="src"><pre><code class="objc">                        </code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">309</td>
+<td class="src"><pre><code class="objc">                        for dict in LocalCountry.timezoneList {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">310</td>
+<td class="src"><pre><code class="objc">                            for (key,value) in dict {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">311</td>
+<td class="src"><pre><code class="objc">                                if key == recruitertTimeZone {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">312</td>
+<td class="src"><pre><code class="objc">                                    print("=====TIME ZONE UPDATED=======\(value)")</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">313</td>
+<td class="src"><pre><code class="objc">                                    let dict:[String:String] = [key:value]</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">314</td>
+<td class="src"><pre><code class="objc">                                    UserDefaults.standard.set(dict, forKey: "RecruiterTimeZone")</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">315</td>
+<td class="src"><pre><code class="objc">                                }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">316</td>
+<td class="src"><pre><code class="objc">                            }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">317</td>
+<td class="src"><pre><code class="objc">                        }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="covered">
+<td class="num">318</td>
+<td class="src"><pre><code class="objc">                    }</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">319</td>
+<td class="src"><pre><code class="objc">                    </code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">320</td>
+<td class="src"><pre><code class="objc">                    if let details = response?["candidate"] as? Dictionary&lt;String,Any&gt; {</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">321</td>
+<td class="src"><pre><code class="objc">                        self.detailsArray = details</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">322</td>
+<td class="src"><pre><code class="objc">                        DispatchQueue.main.async {</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">323</td>
+<td class="src"><pre><code class="objc">                            if let title = details["job_title"] as? String {</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">324</td>
+<td class="src"><pre><code class="objc">                                self.jobTitle = title</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">325</td>
+<td class="src"><pre><code class="objc">                            }</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">326</td>
+<td class="src"><pre><code class="objc">                            </code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">327</td>
+<td class="src"><pre><code class="objc">                            if let jobStatus = details["job_status"] as? String {</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">328</td>
+<td class="src"><pre><code class="objc">                                if jobStatus == .active {</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">329</td>
+<td class="src"><pre><code class="objc">                                    </code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">330</td>
+<td class="src"><pre><code class="objc">                                    self.navigationItem.setRightBarButtonItems(self.editCandidateItem, animated: true)</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">331</td>
+<td class="src"><pre><code class="objc">                                    </code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">332</td>
+<td class="src"><pre><code class="objc">                                } else {</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="missed">
+<td class="num">333</td>
+<td class="src"><pre><code class="objc">                                    self.navigationItem.setRightBarButtonItems(self.notificationItem, animated: true)</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">334</td>
+<td class="src"><pre><code class="objc">                                    </code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="covered">
+<td class="num">335</td>
+<td class="src"><pre><code class="objc">                                }</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">336</td>
+<td class="src"><pre><code class="objc">                            }</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">337</td>
+<td class="src"><pre><code class="objc">                            </code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">338</td>
+<td class="src"><pre><code class="objc">                            if let status = details["status"] as? String {</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">339</td>
+<td class="src"><pre><code class="objc">                                if(status == "Withdrawn"){</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">340</td>
+<td class="src"><pre><code class="objc">                                    self.count = 6</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">341</td>
+<td class="src"><pre><code class="objc">                                }</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">342</td>
+<td class="src"><pre><code class="objc">                            }</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">343</td>
+<td class="src"><pre><code class="objc">                            </code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">344</td>
+<td class="src"><pre><code class="objc">                            if let availabilities = details["availabilities"] as? [Any] {</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">345</td>
+<td class="src"><pre><code class="objc">                                self.availbilitiesData = availabilities</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">346</td>
+<td class="src"><pre><code class="objc">        </code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">347</td>
+<td class="src"><pre><code class="objc">                                self.tableViewData = [cellData(opened: true, title: "", sectionData: [],  sectionData1 : []),cellData(opened: false, title: "Candidate Availability", sectionData: [],  sectionData1 : self.availbilitiesData),</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">348</td>
+<td class="src"><pre><code class="objc">                                                      cellData(opened: false, title: "Interviews (0)", sectionData: [], sectionData1 : self.availbilitiesData)]</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">349</td>
+<td class="src"><pre><code class="objc">                            }</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">350</td>
+<td class="src"><pre><code class="objc">                            </code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">351</td>
+<td class="src"><pre><code class="objc">                            if let interViews = details["interviews"] as? [[String : Any]] {</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">352</td>
+<td class="src"><pre><code class="objc">                                self.interViewersData = interViews</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">353</td>
+<td class="src"><pre><code class="objc">                                if let count = details["interviews_count"] as? Int {</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">354</td>
+<td class="src"><pre><code class="objc">                                    self.tableViewData = [cellData(opened: true, title: "", sectionData: [],  sectionData1 : []),</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">355</td>
+<td class="src"><pre><code class="objc">                                                          cellData(opened: false, title: "Candidate Availability", sectionData: [],  sectionData1 : self.availbilitiesData),</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">356</td>
+<td class="src"><pre><code class="objc">                                                          cellData(opened: false, title: "Interviews (\(count))", sectionData: self.interViewersData, sectionData1 : [])]</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">357</td>
+<td class="src"><pre><code class="objc">                                }</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">358</td>
+<td class="src"><pre><code class="objc">                            }</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">359</td>
+<td class="src"><pre><code class="objc">                            self.detailsTableView.reloadData()</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">360</td>
+<td class="src"><pre><code class="objc">                            self.removeSpinner()</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">361</td>
+<td class="src"><pre><code class="objc">                        }</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">362</td>
+<td class="src"><pre><code class="objc">                    }</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">363</td>
+<td class="src"><pre><code class="objc">                }</code></pre></td>
+<td class="coverage">16x</td>
+</tr>
+<tr class="covered">
+<td class="num">364</td>
+<td class="src"><pre><code class="objc">            }else {</code></pre></td>
+<td class="coverage">16x</td>
+</tr>
+<tr class="missed">
+<td class="num">365</td>
+<td class="src"><pre><code class="objc">                guard let message = error?.message else {return}</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">366</td>
+<td class="src"><pre><code class="objc">                self.handleErrorResponse(message: message)</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="covered">
+<td class="num">367</td>
+<td class="src"><pre><code class="objc">            }</code></pre></td>
+<td class="coverage">16x</td>
+</tr>
+<tr class="covered">
+<td class="num">368</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">16x</td>
+</tr>
+<tr class="covered">
+<td class="num">369</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">16x</td>
+</tr>
+<tr class="never">
+<td class="num">370</td>
+<td class="src"><pre><code class="objc">    </code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">371</td>
+<td class="src"><pre><code class="objc">    @IBAction func backAction(_ sender: Any) {</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">372</td>
+<td class="src"><pre><code class="objc">        self.dismiss(animated: true, completion: nil)</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">373</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="never">
+<td class="num">374</td>
+<td class="src"><pre><code class="objc">    </code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">375</td>
+<td class="src"><pre><code class="objc">    // In a storyboard-based application, you will often want to do a little preparation before navigation</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="missed">
+<td class="num">376</td>
+<td class="src"><pre><code class="objc">    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">377</td>
+<td class="src"><pre><code class="objc">        </code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">378</td>
+<td class="src"><pre><code class="objc">        if segue.identifier == StoryboardSegueIdentifiers.candidateDetailsToEditCandidate {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">379</td>
+<td class="src"><pre><code class="objc">            let navVC = segue.destination as? UINavigationController</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">380</td>
+<td class="src"><pre><code class="objc">            let addCandidateViewController = navVC?.viewControllers.first as? AddCandidateViewController</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">381</td>
+<td class="src"><pre><code class="objc">            addCandidateViewController?.isNavigatingFrom = .editCandidate</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">382</td>
+<td class="src"><pre><code class="objc">            addCandidateViewController?.candidateID =  "\(self.id)"</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">383</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">384</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="never">
+<td class="num">385</td>
+<td class="src"><pre><code class="objc">    </code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">386</td>
+<td class="src"><pre><code class="objc">    </code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">387</td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">388</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">389</td>
+<td class="src"><pre><code class="objc">extension CandidateDetailsViewController{</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">390</td>
+<td class="src"><pre><code class="objc">    </code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="missed">
+<td class="num">391</td>
+<td class="src"><pre><code class="objc">    func getDate(reportDueBy : String) -&gt; String {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">392</td>
+<td class="src"><pre><code class="objc">        let dateformatter = DateFormatter()</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">393</td>
+<td class="src"><pre><code class="objc">        dateformatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'SSS'Z'"</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">394</td>
+<td class="src"><pre><code class="objc">        guard let formattedDueDate = dateformatter.date(from: reportDueBy) else {return ""}</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">395</td>
+<td class="src"><pre><code class="objc">        dateformatter.dateFormat =  "dd MMM, yyyy"</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">396</td>
+<td class="src"><pre><code class="objc">        let date = dateformatter.string(from: formattedDueDate)</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">397</td>
+<td class="src"><pre><code class="objc">        return date</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">398</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="never">
+<td class="num">399</td>
+<td class="src"><pre><code class="objc">    </code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">400</td>
+<td class="src"><pre><code class="objc">    func getfullDate(reportDueBy : String) -&gt; String {</code></pre></td>
+<td class="coverage">5x</td>
+</tr>
+<tr class="covered">
+<td class="num">401</td>
+<td class="src"><pre><code class="objc">        let dateformatter = DateFormatter()</code></pre></td>
+<td class="coverage">5x</td>
+</tr>
+<tr class="covered">
+<td class="num">402</td>
+<td class="src"><pre><code class="objc">        dateformatter.dateFormat = "dd-MMMM-yyyy hh:mm a"</code></pre></td>
+<td class="coverage">5x</td>
+</tr>
+<tr class="covered">
+<td class="num">403</td>
+<td class="src"><pre><code class="objc">        let convertedDate = self.convertUTCToLocalTimeZone(date: reportDueBy)</code></pre></td>
+<td class="coverage">5x</td>
+</tr>
+<tr class="covered">
+<td class="num">404</td>
+<td class="src"><pre><code class="objc">        guard let formattedDueDate = dateformatter.date(from: convertedDate) else {return ""}</code></pre></td>
+<td class="coverage">5x</td>
+</tr>
+<tr class="covered">
+<td class="num">405</td>
+<td class="src"><pre><code class="objc">        dateformatter.dateFormat =  "dd MMM yyyy, hh:mm a"</code></pre></td>
+<td class="coverage">5x</td>
+</tr>
+<tr class="covered">
+<td class="num">406</td>
+<td class="src"><pre><code class="objc">        let date = dateformatter.string(from: formattedDueDate)</code></pre></td>
+<td class="coverage">5x</td>
+</tr>
+<tr class="covered">
+<td class="num">407</td>
+<td class="src"><pre><code class="objc">        return date</code></pre></td>
+<td class="coverage">5x</td>
+</tr>
+<tr class="covered">
+<td class="num">408</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">5x</td>
+</tr>
+<tr class="never">
+<td class="num">409</td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">410</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">411</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">412</td>
+<td class="src"><pre><code class="objc">extension CandidateDetailsViewController {</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">413</td>
+<td class="src"><pre><code class="objc">    </code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">414</td>
+<td class="src"><pre><code class="objc">    @IBAction func documentDowloadAction(_ sender: Any) {</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">415</td>
+<td class="src"><pre><code class="objc">        self.showSpinner()</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">416</td>
+<td class="src"><pre><code class="objc">        DispatchQueue.main.async {</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">417</td>
+<td class="src"><pre><code class="objc">            self.downloadDocument()</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">418</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">419</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="never">
+<td class="num">420</td>
+<td class="src"><pre><code class="objc">    </code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">421</td>
+<td class="src"><pre><code class="objc">    func downloadDocument() {</code></pre></td>
+<td class="coverage">5x</td>
+</tr>
+<tr class="covered">
+<td class="num">422</td>
+<td class="src"><pre><code class="objc">        </code></pre></td>
+<td class="coverage">5x</td>
+</tr>
+<tr class="covered">
+<td class="num">423</td>
+<td class="src"><pre><code class="objc">        guard let candidateData = candidateDetailsResponse["candidate"] as? Dictionary&lt;String,Any&gt; else {</code></pre></td>
+<td class="coverage">5x</td>
+</tr>
+<tr class="covered">
+<td class="num">424</td>
+<td class="src"><pre><code class="objc">            self.removeSpinner()</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">425</td>
+<td class="src"><pre><code class="objc">            return</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">426</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">427</td>
+<td class="src"><pre><code class="objc">        </code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">428</td>
+<td class="src"><pre><code class="objc">        guard let fileURLString = candidateData["resume"] as? String else {</code></pre></td>
+<td class="coverage">4x</td>
+</tr>
+<tr class="covered">
+<td class="num">429</td>
+<td class="src"><pre><code class="objc">            self.removeSpinner()</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">430</td>
+<td class="src"><pre><code class="objc">            return</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">431</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">432</td>
+<td class="src"><pre><code class="objc">        </code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">433</td>
+<td class="src"><pre><code class="objc">        </code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">434</td>
+<td class="src"><pre><code class="objc">        if let fileURL = URL(string: fileURLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!) {</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">435</td>
+<td class="src"><pre><code class="objc">            </code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">436</td>
+<td class="src"><pre><code class="objc">            self.loadFileAsync(url: fileURL) { (result,path) in</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">437</td>
+<td class="src"><pre><code class="objc">                </code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">438</td>
+<td class="src"><pre><code class="objc">                if result {</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">439</td>
+<td class="src"><pre><code class="objc">                    print("File Saved at \(path)")</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">440</td>
+<td class="src"><pre><code class="objc">                    let appendString = "file://" + path</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">441</td>
+<td class="src"><pre><code class="objc">                    self.fileURL = URL(string: appendString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">442</td>
+<td class="src"><pre><code class="objc">                    DispatchQueue.main.async {</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">443</td>
+<td class="src"><pre><code class="objc">                        self.documentInteractionController.url = self.fileURL</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">444</td>
+<td class="src"><pre><code class="objc">                        self.documentInteractionController.uti = self.fileURL?.typeIdentifier ?? "public.data, public.content"</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">445</td>
+<td class="src"><pre><code class="objc">                        self.documentInteractionController.name = self.fileURL?.localizedName ?? self.fileURL?.lastPathComponent</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">446</td>
+<td class="src"><pre><code class="objc">                        self.documentInteractionController.delegate = self</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">447</td>
+<td class="src"><pre><code class="objc">                        self.documentInteractionController.presentPreview(animated: true)</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">448</td>
+<td class="src"><pre><code class="objc">                    }</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">449</td>
+<td class="src"><pre><code class="objc">                    </code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">450</td>
+<td class="src"><pre><code class="objc">                    </code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">451</td>
+<td class="src"><pre><code class="objc">                } else {</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">452</td>
+<td class="src"><pre><code class="objc">                    DispatchQueue.main.async {</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="covered">
+<td class="num">453</td>
+<td class="src"><pre><code class="objc">                        self.showBanner(title: "", withMessage: "Unsupported file not saved.", style: .warning)</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="covered">
+<td class="num">454</td>
+<td class="src"><pre><code class="objc">                    }</code></pre></td>
+<td class="coverage">2x</td>
+</tr>
+<tr class="covered">
+<td class="num">455</td>
+<td class="src"><pre><code class="objc">                }</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">456</td>
+<td class="src"><pre><code class="objc">                </code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">457</td>
+<td class="src"><pre><code class="objc">                DispatchQueue.main.async {</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">458</td>
+<td class="src"><pre><code class="objc">                    self.removeSpinner()</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">459</td>
+<td class="src"><pre><code class="objc">                }</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">460</td>
+<td class="src"><pre><code class="objc">                </code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">461</td>
+<td class="src"><pre><code class="objc">            }</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">462</td>
+<td class="src"><pre><code class="objc">            </code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">463</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="covered">
+<td class="num">464</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">3x</td>
+</tr>
+<tr class="never">
+<td class="num">465</td>
+<td class="src"><pre><code class="objc">    </code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">466</td>
+<td class="src"><pre><code class="objc">    func updateFeedBackDate(reportDueDate : String) -&gt; String {</code></pre></td>
+<td class="coverage">8x</td>
+</tr>
+<tr class="covered">
+<td class="num">467</td>
+<td class="src"><pre><code class="objc">        let localDate = self.convertUTCToLocalTimeZone(date: reportDueDate)</code></pre></td>
+<td class="coverage">8x</td>
+</tr>
+<tr class="covered">
+<td class="num">468</td>
+<td class="src"><pre><code class="objc">        return localDate</code></pre></td>
+<td class="coverage">8x</td>
+</tr>
+<tr class="covered">
+<td class="num">469</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">8x</td>
+</tr>
+<tr class="never">
+<td class="num">470</td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">471</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">472</td>
+<td class="src"><pre><code class="objc">extension CandidateDetailsViewController: UIDocumentInteractionControllerDelegate {</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">473</td>
+<td class="src"><pre><code class="objc">    /// If presenting atop a navigation stack, provide the navigation controller in order to animate in a manner consistent with the rest of the platform</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="covered">
+<td class="num">474</td>
+<td class="src"><pre><code class="objc">    func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -&gt; UIViewController {</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">475</td>
+<td class="src"><pre><code class="objc">        guard let navVC = self.navigationController else {</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">476</td>
+<td class="src"><pre><code class="objc">            return self</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="covered">
+<td class="num">477</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="missed">
+<td class="num">478</td>
+<td class="src"><pre><code class="objc">        return navVC</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="covered">
+<td class="num">479</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">1x</td>
+</tr>
+<tr class="never">
+<td class="num">480</td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">481</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">482</td>
+<td class="src"><pre><code class="objc">extension CandidateDetailsViewController {</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">483</td>
+<td class="src"><pre><code class="objc">    </code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="missed">
+<td class="num">484</td>
+<td class="src"><pre><code class="objc">    @objc func editCandidateAction(_ sender: Any) {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">485</td>
+<td class="src"><pre><code class="objc">        self.performSegue(withIdentifier: StoryboardSegueIdentifiers.candidateDetailsToEditCandidate, sender: self)</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">486</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="never">
+<td class="num">487</td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="coverage"></td>
+</tr>
+</table>
+</div></div>
+<footer><div class="row">
+<p><a href="https://github.com/SlatherOrg/slather">Fork me on Github</a></p>
+<p>&copy; 2020 Slather</p>
+</div></footer><script src="highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

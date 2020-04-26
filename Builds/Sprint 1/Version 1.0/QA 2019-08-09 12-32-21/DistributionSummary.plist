@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>QA.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>arm64</string>
+			</array>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>C181A181606560A12227C3A534C76EEF4170E8E8</string>
+				<key>dateExpires</key>
+				<string>07/08/20</string>
+				<key>type</key>
+				<string>iOS Distribution</string>
+			</dict>
+			<key>embeddedBinaries</key>
+			<array>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>C181A181606560A12227C3A534C76EEF4170E8E8</string>
+						<key>dateExpires</key>
+						<string>07/08/20</string>
+						<key>type</key>
+						<string>iOS Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>DropDown.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>Y9J9JJ4924</string>
+						<key>name</key>
+						<string>eTeki, Inc.</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>C181A181606560A12227C3A534C76EEF4170E8E8</string>
+						<key>dateExpires</key>
+						<string>07/08/20</string>
+						<key>type</key>
+						<string>iOS Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>FlexibleSteppedProgressBar.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>Y9J9JJ4924</string>
+						<key>name</key>
+						<string>eTeki, Inc.</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>C181A181606560A12227C3A534C76EEF4170E8E8</string>
+						<key>dateExpires</key>
+						<string>07/08/20</string>
+						<key>type</key>
+						<string>iOS Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>MarqueeLabel.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>Y9J9JJ4924</string>
+						<key>name</key>
+						<string>eTeki, Inc.</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>C181A181606560A12227C3A534C76EEF4170E8E8</string>
+						<key>dateExpires</key>
+						<string>07/08/20</string>
+						<key>type</key>
+						<string>iOS Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>NotificationBannerSwift.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>Y9J9JJ4924</string>
+						<key>name</key>
+						<string>eTeki, Inc.</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>C181A181606560A12227C3A534C76EEF4170E8E8</string>
+						<key>dateExpires</key>
+						<string>07/08/20</string>
+						<key>type</key>
+						<string>iOS Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>Reachability.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>Y9J9JJ4924</string>
+						<key>name</key>
+						<string>eTeki, Inc.</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>C181A181606560A12227C3A534C76EEF4170E8E8</string>
+						<key>dateExpires</key>
+						<string>07/08/20</string>
+						<key>type</key>
+						<string>iOS Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>SideMenu.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>Y9J9JJ4924</string>
+						<key>name</key>
+						<string>eTeki, Inc.</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>C181A181606560A12227C3A534C76EEF4170E8E8</string>
+						<key>dateExpires</key>
+						<string>07/08/20</string>
+						<key>type</key>
+						<string>iOS Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>SnapKit.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>Y9J9JJ4924</string>
+						<key>name</key>
+						<string>eTeki, Inc.</string>
+					</dict>
+				</dict>
+			</array>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>Y9J9JJ4924.com.amzur.eTekiRecruiter</string>
+				<key>com.apple.developer.team-identifier</key>
+				<string>Y9J9JJ4924</string>
+				<key>get-task-allow</key>
+				<false/>
+				<key>keychain-access-groups</key>
+				<array>
+					<string>Y9J9JJ4924.com.amzur.eTekiRecruiter</string>
+				</array>
+			</dict>
+			<key>name</key>
+			<string>eTekiRecruiter.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>e073357e-934e-4912-81a7-852ffa485e6d</string>
+				<key>name</key>
+				<string>eTekiRecruiter_AdHoc_Provision_Profile</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>Y9J9JJ4924</string>
+				<key>name</key>
+				<string>eTeki, Inc.</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
